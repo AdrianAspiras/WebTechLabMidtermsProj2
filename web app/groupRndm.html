@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>lorem ipsum</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style/browser.css">	
+</head>
+<body>
+	<header><img src="ph.png" alt="placeholder" id="logo">My Virtual Assistant</header>
+
+	<nav class="side-nav">
+		
+		<ul>
+			<li>
+				<a href="index.html"><img src="ph.png" alt="placeholder">back</a>
+			</li><hr>
+			<li>
+				<a href="index.html"><img src="ph.png" alt="placeholder">home</a>
+			</li>
+			<li>	
+				<a href="notes.html"><img src="ph.png" alt="placeholder">notes
+			</li>
+			<li>
+				<a href="attendance.html"><img src="ph.png" alt="placeholder">Seat Plan</a>
+			</li>
+			<li>
+				<a href="groupRndm.html"><img src="ph.png" alt="placeholder">group randomizer</a>
+			</li>
+			<li>
+				<a href="addClass.html"><img src="ph.png" alt="placeholder">add class</a>
+			</li>
+			<li>
+				<a href="addStudents.html"><img src="ph.png" alt="placeholder">add student</a>
+			</li>
+		</ul>
+	</nav>
+	
+	<main>
+		<div id="classSelector">
+			<h2>Select subject</h2>
+			<select>
+				<option></option>
+				<option>Web Technologies(Lab)</option>
+				<option>Web Technologies(Lecture)</option>
+				<option>Programming Applications</option>
+				<option>Artificial Inteligence</option>
+				<option></option>
+				<option></option>
+			</select>
+
+
+			<h2>Select Class</h2>
+			<select>
+				<option></option>
+				<option>9:00-10:00 MWF S425</option>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option></option>
+			</select>
+
+			<form id="groupdata" onsubmit="return false">
+				Number of Groups: <input type="text" name="nGroup" value=""><br>
+				Number of Members per group: <input type="text" name="nMember" value=""><br>
+			<input type="button" name="submit" value="Save data" onclick="">
+			</form>
+			<!-- icon for adding and deleting -->
+			<div id="groupMembers">
+				<h1>Div for listing group number and members<br></h1>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
