@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+   <meta charset="UTF-8">
+   
+   <title>rand100.html</title>
+
+    <!--size of frameset, auto center to screen, not responsive below 600px-->
+   <style type = "text/css">
+
+     fieldset {
+        width: 600px;
+        margin-right: auto;
+        margin-left: auto;
+     }
+
+     label {
+        float: left;
+        width: 250px;
+        text-align: right;
+        margin-right: 1em;
+        clear: left;
+     }
+
+     span {
+        float: left;
+     }
+
+     button {
+        display: block;
+        clear: both;
+        margin: auto;
+     }
+
+   </style>
+
+   <script type = "text/javascript">
+
+     function roll(){
+        //create variables for form elements
+        var spnRaw = document.getElementById("spnRaw");
+        var spn100 = document.getElementById("spn100");
+        var spnFinal = document.getElementById("spnFinal");
+        //get random number
+        var raw = Math.random();
+        spnRaw.innerHTML = raw;
+        //multiply by 100
+        var times100 = raw * 100;
+        spn100.innerHTML = times100;
+        //get the ceiling
+        var final = Math.ceil(times100);
+        spnFinal.innerHTML = final;
+     } // end roll
+
+   </script>
+
+</head>
+
+<body>
+   <!--upper left corner of screen, not responsive-->
+   <h1>Make random numbers 1 - 100</h1>
+
+   <form>
+
+      <fieldset>
+
+         <label>raw</label>
+         <span id = "spnRaw">0</span>
+         <label>times 100</label>
+         <span id = "spn100">0</span>
+         <label>final</label>
+         <span id = "spnFinal">0</span>
+         <!--when button clicked call roll function, button label-->
+         <button type = "button"
+                 onclick = "roll()">
+                 roll the dice
+         </button>
+
+      </fieldset>
+
+   </form>
+
+</body>
+</html>
