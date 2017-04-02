@@ -1,0 +1,39 @@
+Instructor Lesson Planner
+
+Device on-board keyboard usable
+Multipage, multipurpose for multi course, multi class scheduler
+All pages are editable and will update (sync) when next online
+
+Substitute Instructor Info
+	Start of Day / End of Day
+	Lunch hours
+Show:
+Course Names, Course Codes, Course Numbers, Room Number, Schedule Day and Time
+
+What to bring to class today listing
+What to give to, collect from students today
+What to post to Google Classroom at end of day
+Briefing for Pre-Project Requirements
+Schedule of Presentations / Deliverables / Project Updates and Deadlines
+QUIZ / EXAM Coverage, SLU Term Exam Scheduled days and times, or CUSTOM days and times
+
+Follow, out of order class Lecture schedule
+Follow, incomplete Lecture, where did you leave off, mark your stopping point
+	recap last Lecture main ideas pre-briefing, prior to starting where you left off
+
+Yearly General Plan
+Monthly Events / Holidays
+Academic Calender, University / Personal
+	make changes based on updates
+Seat Arrangement
+	student names, ID numbers
+	follow absences
+	follow habitual tardiness
+Customizable Checklists
+	Grades / Problems
+
+Contact Listing
+Top Online Links Listing
+Course Synopsis
+
+Additional Notes / TO DO
