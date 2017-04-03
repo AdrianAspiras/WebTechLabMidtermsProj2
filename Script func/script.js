@@ -354,3 +354,138 @@
 		localStorage.setItem(attendanceKey,JSON.stringify(attendance));
 		console.log("Success");
 	}
+
+
+	function createAttentionLog(){
+		var course = document.getElementById("classSelect");
+		console.log(course);
+		var index = course.options[course.selectedIndex].value;
+		console.log(index);
+		var myObj = JSON.parse(localStorage.getItem(index));
+
+		var attendanceKey = "attendance-"+index;
+		var attendanceObj = JSON.parse(localStorage.getItem(attendanceKey));
+		var date = getDateToday();
+		var attendanceLog = {"Date":date,"Absent":[],"Tardy":[]};
+		attendanceObj.push(attendanceLog);
+		localStorage.setItem(attendanceKey,JSON.stringify(attendanceObj));
+	}
+
+
+
+	function showAttendance(){
+		var course = document.getElementById("classSelect");
+		var index = course.options[course.selectedIndex].value;
+		var myObj = JSON.parse(localStorage.getItem(index));
+
+		var attendanceKey = "attendance-" + index;
+		var attendanceStorage = JSON.parse(localStorage.getItem(attendanceKey));
+		console.log(attendanceStorage);
+	}
+
+	function getHighlightedStudents(){
+		var checkboxes = document.getElementsByName("student");
+		var checkBoxesChecked = [];
+
+		for(var count = 0; count < checkboxes.length; count++){
+			if(checkboxes[count].checked){
+				checkBoxesChecked.push(checkboxes[count].value);
+			}
+		}
+
+		return checkBoxesChecked.length > 0 ? checkBoxesChecked : null;
+	}
+
+
+	function notesForTheThingy(){
+		//Add more functionality for the notes part 
+		//Add more stuff for the notes 
+	}
+
+
+
+	function predicateBy(prop){
+		return function(a,b){
+			if(a[prop] > b[prop]){
+				return 1;
+			}else if(a[prop] < b[prop]){
+				return -1;
+			}
+			return 0;
+		}
+	}
+
+	function uncheckHighlightedStudents(){
+		var checkboxes = document.getElementsByName("student");
+
+		for(var count = 0; count < checkboxes.length; count++){
+			//if(checkboxes[count].checked)
+		}
+	}
+
+	function displayAttendance(){
+		var course = document.getElementById("classSelect");
+		var index = course.options[course.selectedIndex].value;
+		var myObj = JSON.parse(localStorage.getItem(index));
+		var attendanceKey = "attendance-" + index;
+		var attBody = document.getElementById("AttBody");
+		//Try showing the attendance for today
+		//Create a drop down that lists the attendance or that day
+		//Display absentees and the guys who are tardy.
+		var date = document.getElementById("DateSelect");
+		var dateVal = date.options[date.selectedIndex].value;
+		var attObj = JSON.parse(localStorage.getItem(attendanceKey))
+		for(var count = 0; count < attObj.length; count++){
+			if(dateVal == attObj[count].Date){
+				for(var count2 = 0; count2++ < attObj[count].Absent.length; count2++){
+					
+				}
+			}
+		}
+
+	}
+
+	//Fail safe
+	function readFromLocalStorage(){
+		//Read The Courses Log
+		//If there's stuff there then display
+		//If there's nothing there then say. You have no classes yet!
+
+		if(!checkLocalStorage){
+			document.getElementById("classTitle")
+		}
+		var courses = JSON.parse(localStorage.getItem("Courses"));
+		if(courses.length != 0){
+			for(var count = 0; count < courses.length; count++){
+				var courseObj = courses[count];
+				var courseKey = courseObj.CourseKey;
+				var opt = document.createElement("option");
+					document.getElementById("classSelect").append(opt);
+					document.getElementById("classSelect").lastChild.innerHTML = courseKey;
+
+			}
+		}
+	}
+	//Fail safe
+	function checkLocalStorage(){
+		var courses = JSON.parse(localStorage.getItem("Courses"));
+		if(courses.length == undefined || courses.length == 0){
+			return false
+		}else{
+			return true;
+		}
+	}
+
+	function fillDateDrop(){
+		var course = document.getElementById("classSelect");
+		var index = course.options[course.selectedIndex].value;
+		var myObj = JSON.parse(localStorage.getItem(index));
+		var attendanceKey = "attendance-" + index;
+		var arr = JSON.parse(localStorage.getItem(attendanceKey));
+		console.log(arr[0]);
+		for(var count = 0; count < arr.length; count++){
+			var date = arr[count].Date;
+			var list = document.getElementById("DateSelect");
+			list.innerHTML += "<option> " + date;
+		}		
+	}
