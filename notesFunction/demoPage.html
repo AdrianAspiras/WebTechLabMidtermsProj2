@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Notes</title>
-	<style type="text/css" src="styles/styles.css"></style>
-	<script async type="text/javascript" src="script/noteScript.js"></script>
-	<script async type="text/javascript" src="script/demoPopup.js"></script>
+	<title>demoPop</title>
 	<style type="text/css">
 		.popUp {
 			display: none; 
@@ -41,29 +38,27 @@
 	</style>
 </head>
 <body>
-<div id="mainbody">
 	<div id="disPopUp" class="popUp">
 		<div id="popCont">
 			<span id="close">&times;</span>
 			<span id="remCont"></span>
 		</div>
 	</div>
-	<div id="disNotes">
-		
-	</div>
-	<div id="addNoots">
-	<form id="noteDet">
-		<span>Title: </span><input type="text" class="field" name="tit" value=""><br>
-		<span>Class: </span><select id="classSelect"><option value=" ">--Please Select--</option>
-			</select><br>
-		<span>Remind:</span><input type="checkbox" name="yes"> Yes <br>
-		<span>Date and Time:</span><input type="datetime-local" name="dateTime"><br>
-		<span>Description: </span>
-	</form>
-	<textarea id="tArea" cols="60" rows="7"> </textarea><br>
-	<input type="button" name="post" value="Post" onclick="addNotes()">
-	<div>
-</div>
+<script type="text/javascript">
+	var modal = document.getElementById('popUp');
+	var w = new Worker("script/demoPopup.js");
+        
+	
+	window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		    note.notes[indx].rem.alert = false;
+		    console.log(note.notes[indx].rem)
+		    localStorage.setItem("Notes",note);
+	}
 
+
+</script>
 </body>
 </html>
