@@ -2,6 +2,8 @@
 	//notes = notes.replace(/'/g,"\"");
 	//notesJ = JSON.parse(notes);
 	//localStorage.setItem("Notes",notes);
+	var modal = document.getElementById('popUp');
+	var span = document.getElementById('close');
 
 	function appendList(){
 			//var classes = "{'classNames':[{'cName':'geishit'},{'cName':'izreligei'}]}";
@@ -74,8 +76,12 @@
  			}
  		
 		var title = document.getElementById("noteDet").tit.value;
+			if(document.getElementById("noteDet").tit.value == ""){
+				title = "None";
+			}
 		var watClass = document.getElementById("classSelect").options[document.getElementById("classSelect").selectedIndex].value;
 		var desc = document.getElementById("tArea").value;
+			desc = desc.replace(/\n/g,' &#13;&#10; ');
 		var remBool;
 			if(document.getElementById("noteDet").yes.checked == true){
 				remBool = true;
@@ -96,4 +102,15 @@
 			document.getElementById("disNotes").removeChild(document.getElementById("disNotes").firstChild);
 		}
 		dispNotes();
+
+		document.getElementById("noteDet").reset();
 	}
+
+	span.onclick = function() {
+	    modal.style.display = "none";
+	    note.notes[indx].rem.alert = false;
+		console.log(note.notes[indx].rem)
+		localStorage.setItem("Notes",note);
+	}
+
+

@@ -5,6 +5,7 @@ var indx;
 
 
 function remindNow(){
+
 		var lcl = localStorage.getItem("Notes")
 		var note = JSON.parse(lcl);
 		
@@ -24,11 +25,14 @@ function remindNow(){
 		if(min<10){
 		    min='0'+min;
 		} 
+		if(hr<10){
+		    hr='0'+hr;
+		} 
 		var today = "'"+yyyy+"-"+mm+"-"+dd+"T"+hr+":"+min+"'";
 			today = today.replace(/'/g,"\"");
-		console.log(JSON.stringify(note.notes));
 		console.log(today);
 		for (var i = note.notes.length - 1; i >= 0; i--) {
+			console.log(note.notes[i].rem.dateT);
 			if(note.notes[i].rem.alert == "true" && JSON.stringify(note.notes[i].rem.dateT) == today){
 					let tit = note.notes[i].descTitle;
 					let clss = note.notes[i].class;
@@ -40,6 +44,8 @@ function remindNow(){
 					indx = i;
 			}
 		}
+
+		setTimeout(remindNow, 9000);
 		
 	}
 	

@@ -2,43 +2,9 @@
 <html>
 <head>
 	<title>Notes</title>
-	<style type="text/css" src="styles/styles.css"></style>
 	<script async type="text/javascript" src="script/noteScript.js"></script>
 	<script async type="text/javascript" src="script/demoPopup.js"></script>
-	<style type="text/css">
-		.popUp {
-			display: none; 
-		    position: fixed; 
-		    z-index: 1; 
-		    padding-top: 100px; 
-		    left: 0;
-		    top: 0;
-		    width: 100%; 
-		    height: 100%; 
-		    overflow: auto; 
-		    background-color: rgb(0,0,0); 
-		    background-color: rgba(0,0,0,0.4);
-		}
-		#popCont {
-		    background-color: #fefefe;
-		    margin: auto;
-		    padding: 20px;
-		    border: 1px solid #888;
-		    width: 80%;
-		}
-		#close {
-		    color: #aaaaaa;
-		    float: right;
-		    font-size: 28px;
-		    font-weight: bold;
-		}
-
-		#close:hover, #close:focus {
-		    color: #000;
-		    text-decoration: none;
-		    cursor: pointer;
-		}
-	</style>
+	<link href="styles/styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="mainbody">
@@ -54,14 +20,15 @@
 	<div id="addNoots">
 	<form id="noteDet">
 		<span>Title: </span><input type="text" class="field" name="tit" value=""><br>
-		<span>Class: </span><select id="classSelect"><option value=" ">--Please Select--</option>
+		<span>Class: </span><select id="classSelect"><option value="None">--Please Select--</option>
 			</select><br>
 		<span>Remind:</span><input type="checkbox" name="yes"> Yes <br>
 		<span>Date and Time:</span><input type="datetime-local" name="dateTime"><br>
 		<span>Description: </span>
-	</form>
-	<textarea id="tArea" cols="60" rows="7"> </textarea><br>
+		<textarea id="tArea" cols="60" rows="7"></textarea><br>
 	<input type="button" name="post" value="Post" onclick="addNotes()">
+	</form>
+	
 	<div>
 </div>
 
