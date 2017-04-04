@@ -1,65 +1,60 @@
 /* Pop up box for remindNow() */
 
 .popUp {
-    display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
-    left: 0;
     top: 0;
+    left: 0;
+    display: none;
+    overflow: auto;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    padding-top: 100px;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
 }
 
 #popCont {
-    background-color: #fefefe;
+    width: 80%;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    background-color: #fefefe;
 }
 
 #close {
-    color: #aaaaaa;
     float: right;
+    color: #aaaaaa;
     font-size: 28px;
     font-weight: bold;
 }
 
-#close:hover,
-#close:focus {
-    color: #000;
-    text-decoration: none;
+#close:hover, #close:focus {
     cursor: pointer;
+    text-decoration: none;
+    color: #000;
 }
 
 body {
-    background: #F8F2C5;
     padding-top: 80px;
+    background: #F8F2C5;
 }
 
-body,
-input,
-textarea,
-nav,
-label {
+body, input, textarea, nav, label {
     font-family: "Roboto", sans-serif;
 }
 
 header {
     position: fixed;
-    width: 100%;
-    height: 80px;
+    z-index: 2;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 80px;
     padding: 15px;
-    z-index: 2;
-    background-color: #FD9727;
-    border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #FD9727;
     box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
 }
 
@@ -70,29 +65,29 @@ header h1 {
 }
 
 header button {
-    width: 50px;
-    height: 50px;
     position: absolute;
+    z-index: 2;
     top: 15px;
     right: 15px;
-    z-index: 2;
-    border-radius: 25px;
-    background: #fff;
-    border: 0px;
-    box-shadow: none;
-    outline: none;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
+    transition: 0.3s ease;
+    border: 0px;
+    border-radius: 25px;
+    outline: none;
+    background: #fff;
+    box-shadow: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    transition: 0.3s ease;
 }
 
 header button svg {
-    width: 16px;
-    height: 16px;
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 16px;
+    height: 16px;
     margin: -8px 0 0 -8px;
 }
 
@@ -107,24 +102,24 @@ nav span {
     position: absolute;
     top: 0;
     left: 0;
-    cursor: pointer;
-    font-size: 25px;
-    color: #F8F2C5;
     padding: 20px;
+    cursor: pointer;
+    color: #F8F2C5;
+    font-size: 25px;
 }
 
 .sidenav {
-    height: 100%;
-    width: 0;
     position: fixed;
     z-index: 5;
     top: 0;
     left: 0;
-    background-color: #242424;
     overflow-x: hidden;
+    width: 0;
+    height: 100%;
     transition: 0.5s;
-    font-family: "Roboto", sans-serif;
     color: #fff;
+    background-color: #242424;
+    font-family: "Roboto", sans-serif;
 }
 
 .sidenav h1 {
@@ -133,18 +128,17 @@ nav span {
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
     display: block;
+    padding: 8px 8px 8px 32px;
     transition: 0.3s;
+    text-decoration: none;
     text-transform: uppercase;
+    color: #818181;
+    font-size: 25px;
     font-size: 20px;
 }
 
-.sidenav a:hover,
-.offcanvas a:focus {
+.sidenav a:hover, .offcanvas a:focus {
     color: #f1f1f1;
 }
 
@@ -174,8 +168,8 @@ nav span {
 }
 
 .container {
-    width: 100%;
     float: left;
+    width: 100%;
     padding: 15px;
 }
 
@@ -186,53 +180,51 @@ nav span {
     display: none;
 }
 
-#titleLabel,
-#classLabel,
-#descLabel {
+#titleLabel, #classLabel, #descLabel {
     display: none;
 }
 
 #noteDet input {
     color: #141414;
+    border: 0px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.89);
+    box-shadow: none;
     font-size: 15px;
     font-weight: 400;
-    background: rgba(255, 255, 255, 0.89);
-    border-radius: 25px 25px 25px 25px;
-    border: 0px;
-    box-shadow: none;
-    outline: none;
 }
 
 select {
     margin-top: 10px;
     margin-bottom: 10px;
-    outline: none;
-    border: none;
-    box-shadow: none;
-    border-radius: 25px;
     padding: 10px;
-    font-size: 13px;
-    font-family: "Roboto", sans-serif;
-    color: #000;
     text-transform: uppercase;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
 }
 
 textarea {
+    float: left;
+    overflow: none;
     width: 100%;
     height: 100px;
-    float: left;
+    padding: 10px;
+    resize: none;
+    text-indent: 18px;
     color: #141414;
+    border: 0px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.89);
+    box-shadow: none;
     font-size: 15px;
     font-weight: 400;
-    text-indent: 18px;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.89);
-    border-radius: 25px 25px 25px 25px;
-    border: 0px;
-    box-shadow: none;
-    outline: none;
-    overflow: none;
-    resize: none;
 }
 
 input[name=tit] {
@@ -241,9 +233,9 @@ input[name=tit] {
 }
 
 #classSelect {
-    height: 30px;
-    display: block;
     position: absolute;
+    display: block;
+    height: 30px;
     margin: 20px 0 25px 5px;
 }
 
@@ -251,8 +243,8 @@ input[name=tit] {
     float: left;
     margin: 55px 0 0 0;
     text-transform: uppercase;
-    font-family: "Roboto", sans-serif;
     color: rgba(0, 0, 0, 0.69);
+    font-family: "Roboto", sans-serif;
 }
 
 input[type=checkbox] {
@@ -260,24 +252,24 @@ input[type=checkbox] {
 }
 
 .checkboxTwo {
+    position: relative;
     width: 70px;
     height: 30px;
-    background: #fff;
     margin: 50px 0 0 75px;
     border-radius: 50px;
-    position: relative;
+    background: #fff;
 }
 
 .checkboxTwo label {
-    display: block;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    transition: all .5s ease;
-    cursor: pointer;
     position: absolute;
     top: 3px;
     left: 5px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: all .5s ease;
+    border-radius: 50%;
     background: rgba(234, 233, 233, 0.9);
     box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.10);
 }
@@ -287,65 +279,64 @@ input[type=checkbox] {
     background: #4fbe79;
 }
 
-#dateLabel,
-input[name=dateTime] {
+#dateLabel, input[name=dateTime] {
     display: inline-flex;
 }
 
 #dateLabel {
-    text-transform: uppercase;
-    font-family: "Roboto", sans-serif;
-    color: rgba(0, 0, 0, 0.69);
     margin: 0;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.69);
+    font-family: "Roboto", sans-serif;
 }
 
 input[name=dateTime] {
-    padding: 5px;
     width: 230px;
     height: 40px;
+    margin: 25px 0 25px 25px;
+    padding: 5px;
     text-transform: uppercase;
     font-family: "Roboto", sans-serif;
-    margin: 25px 0 25px 25px;
 }
 
 input[name=post] {
-    padding: 10px;
-    background: #FD9727 !important;
-    color: #F8F2C5 !important;
-    text-transform: uppercase;
-    font-weight: 500 !important;
-    border-radius: 10px 10px 10px 10px;
-    margin: 10px 20px 0 0;
     float: right;
+    margin: 10px 20px 0 0;
+    padding: 10px;
     cursor: pointer;
+    text-transform: uppercase;
+    color: #F8F2C5 !important;
+    border-radius: 10px 10px 10px 10px;
+    background: #FD9727 !important;
+    font-weight: 500 !important;
 }
 
 
 /* disNotes div - generated notes data */
 
 #disNotes h2 {
-    color: rgba(29, 29, 29, 0.35);
-    font-size: 15px;
-    text-transform: uppercase;
-    font-family: "Roboto", sans-serif;
     margin-top: 20px;
     text-align: center;
+    text-transform: uppercase;
+    color: rgba(29, 29, 29, 0.35);
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
 }
 
 .note {
+    position: relative;
+    float: left;
     width: 100%;
     min-height: 50px;
-    float: left;
-    font-size: 14px;
-    font-weight: 500;
-    color: #444;
-    line-height: 22px;
-    background: #fff;
-    border-radius: 5px;
-    position: relative;
-    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
     margin: 0 0 10px 0;
     padding: 14px 100px 14px 14px;
+    color: #444;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
 }
 
 .note h3 {
@@ -354,8 +345,8 @@ input[name=post] {
 }
 
 .note h4 {
-    color: #585858;
     padding-bottom: 10px;
+    color: #585858;
 }
 
 .note h4::before {
@@ -366,15 +357,15 @@ input[value=Delete] {
     position: absolute;
     right: 10px;
     bottom: 10px;
+    padding: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
     color: #fff;
+    border: 0px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    background: rgba(181, 43, 43, 0.89);
+    box-shadow: none;
     font-size: 10px;
     font-weight: 400;
-    padding: 6px;
-    background: rgba(181, 43, 43, 0.89);
-    border-radius: 25px 25px 25px 25px;
-    border: 0px;
-    box-shadow: none;
-    outline: none;
-    text-transform: uppercase;
-    cursor: pointer;
 }
