@@ -39,7 +39,7 @@
 		let tit = notesJ.notes[i].descTitle;
 		let clss = notesJ.notes[i].class;
 		let desc = notesJ.notes[i].description;
-		hotmail =  "<div class='note'><h3>"+tit+"</h3><h4>"+clss+"</h4><p>"+desc+"</p><input type='button' name='Delet' value='Delet' onclick='deletNote("+i+")'></div>";
+		hotmail =  "<div class='note'><h3>"+tit+"</h3><h4>"+clss+"</h4><p>"+desc+"</p><input type='button' name='Delet' value='Delete' onclick='deletNote("+i+")'></div>";
 		hotmail = hotmail.replace(/'/g,"\"");
 		document.getElementById("disNotes").innerHTML += hotmail;
 		
