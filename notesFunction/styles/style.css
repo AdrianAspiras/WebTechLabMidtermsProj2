@@ -120,11 +120,11 @@ nav span {
     z-index: 5;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #242424;
     overflow-x: hidden;
     transition: 0.5s;
     font-family: sans-serif;
-    color: white;
+    color: #fff;
 }
 
 .sidenav a {
@@ -133,7 +133,10 @@ nav span {
     font-size: 25px;
     color: #818181;
     display: block;
-    transition: 0.3s
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
 }
 
 .sidenav a:hover,
@@ -189,7 +192,6 @@ nav span {
     color: #141414;
     font-size: 15px;
     font-weight: 400;
-    text-indent: 18px;
     background: rgba(255, 255, 255, 0.89);
     border-radius: 25px 25px 25px 25px;
     border: 0px;
@@ -294,31 +296,23 @@ input[name=dateTime] {
 }
 
 input[name=dateTime] {
-    width: 240px;
+    padding: 5px;
+    width: 230px;
     height: 40px;
     text-transform: uppercase;
     font-family: "Roboto", sans-serif;
     margin: 25px 0 25px 25px;
 }
 
-textarea::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-    
-}
-
-textarea::-moz-placeholder {
-    /* Firefox 19+ */
-    color: pink;
-}
-
-textarea:-ms-input-placeholder {
-    /* IE 10+ */
-    color: pink;
-}
-
-textarea:-moz-placeholder {
-    /* Firefox 18- */
-    
+input[name=post] {
+    padding: 10px;
+    background: #FD9727 !important;
+    color: #F8F2C5 !important;
+    text-transform: uppercase;
+    font-weight: 500 !important;
+    border-radius: 10px 10px 10px 10px;
+    margin: 10px 20px 0 0;
+    float: right;
 }
 
 
@@ -363,9 +357,19 @@ textarea:-moz-placeholder {
     content: 'Class: ';
 }
 
-input[value=Delete]{
+input[value=Delete] {
     position: absolute;
-    right:0;
-    bottom:0;
-    padding: 20px;
+    right: 10px;
+    bottom: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 400;
+    padding: 6px;
+    background: rgba(181, 43, 43, 0.89);
+    border-radius: 25px 25px 25px 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    text-transform: uppercase;
+    cursor: pointer;
 }
