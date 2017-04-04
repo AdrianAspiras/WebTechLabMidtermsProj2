@@ -123,8 +123,13 @@ nav span {
     background-color: #242424;
     overflow-x: hidden;
     transition: 0.5s;
-    font-family: sans-serif;
+    font-family: "Roboto", sans-serif;
     color: #fff;
+}
+
+.sidenav h1 {
+    margin: 60px 0 30px 0;
+    font-size: 24px;
 }
 
 .sidenav a {
@@ -136,7 +141,6 @@ nav span {
     transition: 0.3s;
     text-transform: uppercase;
     font-size: 20px;
-    font-family: "Roboto", sans-serif;
 }
 
 .sidenav a:hover,
@@ -313,6 +317,7 @@ input[name=post] {
     border-radius: 10px 10px 10px 10px;
     margin: 10px 20px 0 0;
     float: right;
+    cursor: pointer;
 }
 
 
