@@ -4,6 +4,9 @@
 	//localStorage.setItem("Notes",notes);
 	var modal = document.getElementById('popUp');
 	var span = document.getElementById('close');
+	var locl = "{'classNames':[{'className':'IT321-9351A-11:00'},{'className':'IT321-9351A-11:00'},{'className':'IT322-9351B-10:30'}]}"
+		locl = locl.replace(/'/g,"\"");
+	localStorage.setItem("classNames",locl);
 
 	function appendList(){
 			//var classes = "{'classNames':[{'cName':'geishit'},{'cName':'izreligei'}]}";
