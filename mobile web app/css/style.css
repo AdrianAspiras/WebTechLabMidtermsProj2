@@ -73,9 +73,74 @@
 	color: white;
 }
 
-body{
-	
-	
+}
+
+body {
+    padding-top: 80px;
+}
+
+body, input, textarea, nav, label {
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 15px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+}
+
+header h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #F8F2C5;
+}
+
+header button {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 0px;
+    border-radius: 25px;
+    outline: none;
+    background: #fff;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+header button svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+}
+
+
+
+/* Navigation */
+
+nav span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    cursor: pointer;
+    color: #F8F2C5;
+    font-size: 25px;
 }
 
 #notesmenu{
@@ -85,7 +150,6 @@ body{
 .toppage h1{
 	padding-top: 7px;
 	padding-left:20px;
-	font-family: "Segoe UI Light";
 	color: white;
 	
 	font-size: 20px;
@@ -100,12 +164,10 @@ body{
 }
 #mainmenu ul{
 	list-style-type: none;
-	font-family: "Arial";
 	font-size: 20px;
 }
 
 #mainmenu h2{
-	font-family: "Arial";
 	font-size: 26px;
 }
 
@@ -150,30 +212,36 @@ ul {
 }
 
 .sidenav {
-    height: 100%;
-    width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 5;
     top: 0;
     left: 0;
-    background-color: #111;
     overflow-x: hidden;
+    width: 0;
+    height: 100%;
     transition: 0.5s;
-    font-family: "Segoe UI Light";
-	color: white;
-	
+    color: #fff;
+    background-color: #242424;
+    font-family: "Roboto", sans-serif;
+}
+
+.sidenav h1 {
+    margin: 60px 0 30px 0;
+    font-size: 24px;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
     display: block;
-    transition: 0.3s
+    padding: 8px 8px 8px 32px;
+    transition: 0.3s;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #818181;
+    font-size: 25px;
+    font-size: 20px;
 }
 
-.sidenav a:hover, .offcanvas a:focus{
+.sidenav a:hover, .offcanvas a:focus {
     color: #f1f1f1;
 }
 
@@ -182,28 +250,35 @@ ul {
     top: 0;
     right: 25px;
     font-size: 36px;
-    
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
-
-.sidenav h1{
-	padding-left: 20px;
+.sidenav h1 {
+    padding-left: 20px;
 }
 
-.menu{
-	font-family: "Segoe UI Light";
-	font-size: 20px;
+.menu p {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+}
+
+.container {
+    float: left;
+    width: 100%;
+    padding: 15px;
 }
 
 #subjEntry{
 	padding-top: 65px;
 	padding-left: 5px;
-	font-family: "Segoe UI Light";
 	font-size: 20px;
 }
 
@@ -273,10 +348,18 @@ ul {
 
 
 
-select{
-	width: 45%;
-	height: 30px;
-
+select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
 }
 
 #notesmenu{
@@ -317,5 +400,7 @@ textarea{
 #classDetails{
 	padding-top: 10px;
 }
+
+
 
 
