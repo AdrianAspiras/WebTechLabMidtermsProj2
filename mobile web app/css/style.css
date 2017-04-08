@@ -1,0 +1,321 @@
+.toppage{
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: 70px;
+	position: fixed;
+	display: inline-block;
+
+}
+
+#maintop{
+	background-color: #3498db;
+	text-decoration: none;
+}
+
+#rrgtop{
+	background-color: #e74c3c;
+}
+
+
+#rrg{
+	background-color: #f6a4a4;
+
+}
+
+#classtop{
+	background-color: #404040;
+}
+
+
+#class{
+	background-color: #424a80;
+
+}
+
+#main{
+	background-color: #64b6ec;
+
+}
+
+#notestop{
+	background-color: #ff9800;
+
+}
+#notes{
+	background-color: #f8f3c3;
+
+
+}
+.menu{
+	padding-top: 70px;
+	padding-left: 10px;
+	
+	top: 0px;
+	left: 0px;
+	right: 0px;
+
+}
+
+#mainmenu p{
+	font-size: 50px;
+	font-family: "Segoe UI Light";
+	color: white;
+}
+
+#mainmenu span{
+	font-weight: bold;
+}
+
+#rrgmenu p{
+	font-size: 60px;
+	font-family: "Segoe UI Light";
+	color: white;
+}
+
+body{
+	
+	
+}
+
+#notesmenu{
+	color: black;
+}
+
+.toppage h1{
+	padding-top: 7px;
+	padding-left:20px;
+	font-family: "Segoe UI Light";
+	color: white;
+	
+	font-size: 20px;
+}
+.menu a{
+	text-decoration: none;
+	color: white;
+}
+
+.menu{
+	color: white;
+}
+#mainmenu ul{
+	list-style-type: none;
+	font-family: "Arial";
+	font-size: 20px;
+}
+
+#mainmenu h2{
+	font-family: "Arial";
+	font-size: 26px;
+}
+
+#one{
+	background-color: #ff9800;
+	padding: 15px;
+	margin: 15px;
+
+}
+
+#two{
+	background-color: #ff4e4e;
+	padding: 15px;
+	margin: 15px;
+
+}
+
+#three{
+	background-color: #a54040;
+	padding: 15px;
+	margin: 15px;
+
+
+
+}
+
+#four{
+	background-color: #009688;
+	padding: 15px;
+	margin: 15px;
+}
+
+#five{
+	background-color: #3f51b5;
+	padding: 15px;
+	margin: 15px;
+}
+
+ul {
+    list-style-position: inside;
+    padding-left:0;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    font-family: "Segoe UI Light";
+	color: white;
+	
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.sidenav h1{
+	padding-left: 20px;
+}
+
+.menu{
+	font-family: "Segoe UI Light";
+	font-size: 20px;
+}
+
+#subjEntry{
+	padding-top: 65px;
+	padding-left: 5px;
+	font-family: "Segoe UI Light";
+	font-size: 20px;
+}
+
+#insertClass{
+	padding-top: 50px;
+}
+
+#insertClass span{
+	display: inline-block;
+	width: 50%;
+	height: 30px;
+}
+#mainbody span{
+	display: inline-block;
+	width: 30%;
+	height: 30px;
+}
+
+#insertClass input{
+	width: 45%;
+
+}
+
+#mainbody input{
+	width: 60%;
+}
+
+#mainbody select{
+	width: 61%;
+	height: 30px;
+}
+
+
+.field{
+	height: 20px;
+}
+
+
+
+.button {
+	padding: 10px 20px;
+	font-size: 16px;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #4CAF50;
+	border: none;
+	border-radius: 15px;
+	margin: 0 auto;
+
+
+}
+
+.submitbut{
+	text-align: center;
+	padding-top: 10px;
+
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+
+
+
+select{
+	width: 45%;
+	height: 30px;
+
+}
+
+#notesmenu{
+	font-color: black;
+}
+
+
+textarea{
+	width:95%;
+}
+
+#notecontent {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: #fcc866;
+
+}
+
+.addbutton{
+	float: right;
+	padding-right: 10px;
+
+}
+
+#addNoots{
+	display: none;
+}
+
+#insertClass{
+	display: none;
+}
+
+#listClasses{
+	padding-top: 50px;
+}
+
+#classDetails{
+	padding-top: 10px;
+}
+
+
