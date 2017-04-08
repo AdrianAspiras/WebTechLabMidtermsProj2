@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Recitation Randomizer</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+		<script type="text/javascript" src="script/script.js"></script>	
+		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="script/NewJS.js"></script>
+	</head>
+
+	<body id="rrg">
+		<div id="mySidenav" class="sidenav">
+			<h1>Virtual Lesson Plan</h1>
+		    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		    <a href="./index.html">Home</a>
+		    <a href="./notes.html">Notes</a>
+		    <a href="./recitationrandomizer.html">Group Randomizer</a>
+		    <a href="./class.html">Classes</a>
+		</div>
+		<div id="rrgtop" class="toppage">
+			
+			<h1><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>Group Randomizer</h1>
+			
+		</div>
+
+		<div id="rggmenu" class="menu">
+			<p>Pick a classcode to pick a lucky student
+			</p>
+			<span>Select Class:</span><select id="classSelect1" onchange="">	
+			</select>
+			<input type="button" class="button" name="Randomize()" value="LUCKY!">
+		
+		</div>
+	</body>
+</html>

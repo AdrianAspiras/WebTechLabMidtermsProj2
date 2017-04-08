@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Class</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+		<script defer type="text/javascript" src="script/classScript.js"></script>	
+		<script src="js/script.js"></script>
+	</head>
+
+	<body id="class">
+		<div id="mySidenav" class="sidenav">
+			<h1>Virtual Lesson Plan</h1>
+		    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		    <a href="./index.html">Home</a>
+		    <a href="./notes.html">Notes</a>
+		    <a href="./recitationrandomizer.html">Group Randomizer</a>
+		    <a href="./class.html">Classes</a>
+		</div>
+
+		<div id="classtop" class="toppage">
+			
+			<h1><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span> Classes <div class ="addbutton">
+			<input type="button" class="button" value="Add Class" onclick="hsclass()">
+			</div></h1>
+			
+		</div>
+
+		<div id="insertClass" class="menu">
+			<h2>Add Class</h2>
+			<form id="ClassDet">
+				<span>Class Code: </span><input type="text" class="field" name="matamis" value=""><br>
+				<span>Start Time: </span><input type="text" class="field" name="maasim" value=""><br>
+				<span>Course Number: </span><input type="text" class="field"  name="maalat" value=""><br>
+				<div class="submitbut">
+					<input type="button" class="button" name="submit" value="Synchronize" onclick="doOtherAjax();parseCheckList();">
+					<input type="button" class="button" name="submit" value="Add Class" onclick="setVal()">
+				</div>
+			</form>
+
+			
+		</div>
+
+		<div id="listClasses" class="menu">
+
+		<h2>Classes</h2>
+			<span>Select Class:</span><select id="classSelect" onchange="getVal()">	
+			</select>
+		</div>
+		<div id="classDetails" class="menu">  
+			<div id="classTitle">
+
+			</div>
+			<div>
+		
+			</div>
+			<div id="seatPlan">
+
+			</div>
+
+
+		</div>
+
+	
+	</body>
+</html>
