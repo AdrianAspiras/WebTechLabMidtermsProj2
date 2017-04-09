@@ -34,10 +34,21 @@ function remindNow(){
 		for (var i = note.notes.length - 1; i >= 0; i--) {
 			console.log(note.notes[i].rem.dateT);
 			if(note.notes[i].rem.alert == "true" && JSON.stringify(note.notes[i].rem.dateT) == today){
-					let tit = note.notes[i].descTitle;
-					let clss = note.notes[i].class;
-					let desc = note.notes[i].description;
-					hotmail =  "<h3>Title"+tit+"</h3><h4>Class"+clss+"</h4><p>Description:"+desc+"</p>";
+					let tit = notesJ.notes[i].descTitle;
+					let clss = notesJ.notes[i].class;
+					if(notesJ.notes[i].description == ""){
+						desc = "No Description";
+					} else {
+						desc = notesJ.notes[i].description;
+					}
+					
+					var rem;
+					if(notesJ.notes[i].rem.alert == "true"){
+						rem = notesJ.notes[i].rem.dateT.replace("T", " ");
+					} else {
+						rem = 'None';
+					}
+					hotmail =  "<h3>"+tit+"</h3><h4>"+clss+"</h4><div id='remSect'><p><span>Reminder: </span><span>"+rem+"</span></p></div><p>"+desc+"</p>";
 					hotmail = hotmail.replace(/'/g,"\"");
 					document.getElementById("remCont").innerHTML = hotmail;
 					modal.style = 'display:block';

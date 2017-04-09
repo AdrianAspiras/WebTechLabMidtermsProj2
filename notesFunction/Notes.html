@@ -47,15 +47,16 @@
 			</select><br>
                     <span id="remindLabel">Remind</span>
                     <div class="checkboxTwo">
-                        <input type="checkbox" value="1" id="checkboxTwoInput" name="yes" />
+                        <input type="checkbox" value="1" id="checkboxTwoInput" name="yes" onchange="showDaTi()"/>
                         <label for="checkboxTwoInput"></label>
 
                     </div>
-                    <span id="dateLabel">When</span><input id="datetime" type="datetime-local" name="dateTime"><br>
+                    <div id="dtSect"><span id="dateLabel">When</span><input id="datetime" type="datetime-local" name="dateTime"></div><br>
                     <span id="descLabel">Description </span>
                     <textarea id="tArea" cols="60" rows="7" placeholder="Description"></textarea><br>
-                    <input type="button" name="post" value="Post" onclick="addNotes()">
+                    <input type="button" name="post" value="Post" onclick="addNotes(),toggle_visibility('addNoots')">
                 </form>
+                <div id="alertLine"></div>
 
             </div>
 
