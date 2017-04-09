@@ -37,9 +37,9 @@
 		<div id="insertClass" class="menu">
 			<h2>Add Class</h2>
 			<form id="ClassDet">
-				<span>Class Code: </span><input type="text" class="field" name="matamis" value=""><br>
-				<span>Start Time: </span><input type="text" class="field" name="maasim" value=""><br>
-				<span>Course Number: </span><input type="text" class="field"  name="maalat" value=""><br>
+				<input type="text" class="field" name="matamis" value="" placeholder="Class Code"><br>
+				<input type="text" class="field" name="maasim" value="" placeholder="Class Start Time"><br>
+				<input type="text" class="field"  name="maalat" value="" placeholder="Course Number"><br>
 				<div class="submitbut">
 					<input type="button" class="button" name="submit" value="Synchronize" onclick="doOtherAjax();parseCheckList();">
 					<input type="button" class="button" name="submit" value="Add Class" onclick="setVal()">
@@ -52,7 +52,7 @@
 		<div id="listClasses" class="menu">
 
 		<h2>Classes</h2>
-			<span>Select Class:</span><select id="classSelect" onchange="getVal()">	
+			<select id="classSelect" onchange="getVal()">	
 			</select>
 		</div>
 		<div id="classDetails" class="menu">  
