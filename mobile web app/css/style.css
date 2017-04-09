@@ -24,7 +24,7 @@
 }
 
 #classtop{
-	background-color: #404040;
+	background-color: #131A4B;
 }
 
 
@@ -91,9 +91,6 @@ header {
     width: 100%;
     height: 80px;
     padding: 15px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
 }
 
 header h1 {
@@ -286,11 +283,6 @@ ul {
 	padding-top: 50px;
 }
 
-#insertClass span{
-	display: inline-block;
-	width: 50%;
-	height: 30px;
-}
 #mainbody span{
 	display: inline-block;
 	width: 30%;
@@ -298,8 +290,33 @@ ul {
 }
 
 #insertClass input{
-	width: 45%;
+    padding: 10px;
+    color: #141414;
+    border: 0px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    background: white;
+    box-shadow: none;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 5px 0 5px 5px;
 
+}
+
+#insertClass{
+    text-align: center;
+}
+
+input[name=submit] {
+    float: right;
+    margin: 10px 20px 0 0;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white !important;
+    border-radius: 10px 10px 10px 10px;
+    background: #2A3169 !important;
+    font-weight: 500 !important;
 }
 
 #mainbody input{
@@ -314,24 +331,11 @@ ul {
 
 .field{
 	height: 20px;
+    width: 80%;
 }
 
 
 
-.button {
-	padding: 10px 20px;
-	font-size: 16px;
-	text-align: center;
-	text-decoration: none;
-	outline: none;
-	color: #fff;
-	background-color: #4CAF50;
-	border: none;
-	border-radius: 15px;
-	margin: 0 auto;
-
-
-}
 
 .submitbut{
 	text-align: center;
@@ -339,7 +343,6 @@ ul {
 
 }
 
-.button:hover {background-color: #3e8e41}
 
 .button:active {
   background-color: #3e8e41;
