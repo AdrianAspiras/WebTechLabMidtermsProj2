@@ -15,7 +15,7 @@
 		*/
 		readFromLocalStorage();
 		getVal();
-		fillDateDrop();
+		selectSortingType();
 
 
 
@@ -240,6 +240,7 @@
  			var jsonObj = studList.sort(predicateBy("Name"));
  			console.log(jsonObj);
  			for(var count = 0; count < jsonObj.length; count++){
+ 				//Do the labels
  				if(count == 0){
  					document.getElementById("seatPlan").innerHTML = "<input name='student' type='checkbox' id=" + jsonObj[count].ID  + " value=" + jsonObj[count].ID +" />" +  jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "<br />";
  				}else{
@@ -664,15 +665,10 @@
 		var date = document.getElementById("DateSelect");
 		var dateVal = date.options[date.selectedIndex].value;
 		var attObj = JSON.parse(localStorage.getItem(attendanceKey));
-
 		for(var count = 0; count < attObj.length; count++){
 			if(dateVal == attObj[count].Date){
 				console.log(attObj[count].Absent.length);
-				if(attObj[count].Absent.length == 0){
-						document.getElementById("AttBody").innerHTML = "<h5> There are no absentees for today ";
-						console.log("ochinchin");
-						break;
-				}
+				document.getElementById("AttBody").innerHTML = "<h4> " + "Absentees"
 				for(var count2 = 0; count2 < attObj[count].Absent.length; count2++){
 					var attbod = document.getElementById("AttBody");
 					console.log(attbod);
@@ -684,10 +680,9 @@
 					
  				}
 				
-
+				var attbod = document.getElementById("AttBody");
+				attbod.innerHTML += "<h4> Tardy";
  				for(var count3 = 0; count3 < attObj[count].Tardy.length; count3++){
- 					var attbod = document.getElementById("AttBody");
- 					attbod.innerHTML += "<h4> Tardy";
  					if(attObj[count].Tardy.length == 0){
  						attbod.innerHTML += "<h5> There are no tardy people for today";
  					}else{
@@ -700,8 +695,44 @@
 		}
 	}
 
+	/**
+		displayStudAttendance()
+			-Displays the dates in which the student was absent.
+	*/
+	function displayStudAttendance(){
+		var course = document.getElementById("classSelect");
+		var index = course.options[course.selectedIndex].value;
+		var myObj = JSON.parse(localStorage.getItem(index));
+		var studLogKey = "studLog-" + index;
+		//get the value highlighted in the box
+		var student = document.getElementById("DateSelect");
+		var studVal = student.options[student.selectedIndex].value;
+		var studIdNum = studVal.substr(studVal.indexOf('-')+1,studVal.length)
+		var logObj = JSON.parse(localStorage.getItem(studLogKey));
+		for(var count = 0; count < logObj.length; count++){
+			var docBody = document.getElementById("AttBody");
+			if(logObj[count].ID == studIdNum){
 
-	function displayStudents(){
+				docBody.innerHTML = "<h3> Absences";
+				var absences = logObj[count].Absents;
+				var tardy = logObj[count].Tardy;
+				console.log(absences.length);
+				console.log(tardy.length);
+				for(var count2 = 0; count2 < absences.length; count2++){
+					var absentDate = logObj[count].Absents[count2];
+					docBody.innerHTML += "<h5> " + absentDate;
+				}
+
+				docBody.innerHTML += "<h3> Tardy ";
+				for(var count3 = 0; count3 < tardy.length; count3++){
+					var tardyDate = logObj[count].Absents[count3];
+					docBody.innerHTML += "<h5> " + tardyDate;
+				}
+			
+				break;
+			}
+
+		}
 
 	}
 
@@ -717,8 +748,8 @@
 				var courseObj = courses[count];
 				var courseKey = courseObj.CourseKey;
 				var opt = document.createElement("option");
-					document.getElementById("classSelect").append(opt);
-					document.getElementById("classSelect").lastChild.innerHTML = courseKey;
+				document.getElementById("classSelect").append(opt);
+				document.getElementById("classSelect").lastChild.innerHTML = courseKey;
 
 			}
 		}
@@ -784,8 +815,15 @@
 		for(var count = 0; count < studObj.length; count++){
 			var studName = studObj[count].Name;
 			var studId = studObj[count].ID;
-			
-
+			var opt = studName + "-" + studId; 
+			if(studObj[count].Absents.length != 0 || studObj[count].Tardy.length != 0){
+				if(count == 0){
+					document.getElementById("DateSelect").innerHTML = "<option> " + opt;
+				}
+				else{
+				  document.getElementById("DateSelect").innerHTML += "<option> " + opt;
+				}
+			}
 		}
 	
 
@@ -1066,21 +1104,24 @@
 
 	}
 
-
+	/**
+		selectSortingType()
+			- used to blah blah blah blah
+	*/
 	function selectSortingType(){
 		var date = document.getElementById("dateSort");
 		var stud = document.getElementById("studSort");
 
 		if(date.checked == true){
-			//Remember to change the value of the onchange() attribute for the drop down
 			fillDateDrop();
+			document.getElementById("DateSelect").setAttribute("onchange","displayAttendance()");
+			displayAttendance();
 		}
 
 		if(stud.checked == true){
 			//Remember to change the value of the onchange() attribute for the drop down
-			fillWithStudent();
+			fillStudDrop();
+			document.getElementById("DateSelect").setAttribute("onchange","displayStudAttendance()")
+			displayStudAttendance();
 		}
 	}
-
-
-
