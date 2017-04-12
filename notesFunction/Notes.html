@@ -45,22 +45,24 @@
                     <span id="titleLabel">Title </span><input type="text" class="field" name="tit" value="" placeholder="Title"><br>
                     <span id="classLabel">Class: </span><select id="classSelect"><option value="None">Select Class</option>
 			</select><br>
+
                     <span id="remindLabel">Remind</span>
                     <div class="checkboxTwo">
-                        <input type="checkbox" value="1" id="checkboxTwoInput" name="yes" onchange="showDaTi()"/>
+                        <input type="checkbox" value="1" id="checkboxTwoInput" name="yes" onchange="showDaTi()" />
                         <label for="checkboxTwoInput"></label>
 
                     </div>
+
+
                     <div id="dtSect"><span id="dateLabel">When</span><input id="datetime" type="datetime-local" name="dateTime"></div><br>
                     <span id="descLabel">Description </span>
                     <textarea id="tArea" cols="60" rows="7" placeholder="Description"></textarea><br>
                     <input type="button" name="post" value="Post" onclick="addNotes(),toggle_visibility('addNoots')">
                 </form>
                 <div id="alertLine"></div>
-
             </div>
 
-            <div class="container" id="disNotes">
+            <div class="container flexcontainer" id="disNotes">
 
             </div>
 
