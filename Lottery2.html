@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Random Group Generator</title>
+<script type="text/javascript" language="javascript">
+  var group = {
+    max : 49,   //verified output, 1 thru max, adjust for actual num of Students in class
+    num : 6,    //adjust for actual num of required initial outputs per group
+    stars: 1
+  }
+            
+  function lottery() {
+    printNumbers(getNumbers((group.num+group.stars),group.max),"group");
+  }
+
+  function printNumbers(numbers,type) {
+    for(var x in numbers) {
+      document.getElementById(type+x).innerHTML = numbers[x];
+    }
+  }
+
+  function getNumbers(totalPicks,picks) {
+    var numbers = [];
+    for (var i = picks; i > 0; i--) {
+      numbers.push(i);
+    }
+
+    numbers.sort(
+      function() {
+        return (Math.round(Math.random())-0.5);
+      }
+    );
+    return numbers.slice(0,totalPicks);
+  }
+</script>
+</head>
+<body>
+
+<input type="button" value=" Generate " id="reload" onclick="lottery()">
+<table width="200" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="50" align="center">Group #1:</td>
+    <td width="150" align="center" id="group0">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="100" align="center">Group #2:</td>
+    <td width="100" align="center" id="group1">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="100" align="center">Group #3:</td>
+    <td width="100" align="center" id="group2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="100" align="center">Group #4:</td>
+    <td width="100" align="center" id="group3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="100" align="center">Group #5:</td>
+    <td width="100" align="center" id="group4">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="100" align="center">Group #6:</td>
+    <td width="100" align="center" id="group5">&nbsp;</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+<!--TO DO LISTING-->
+<!--make random number generator; COMPLETE
+    make generator responsive
+    make generator colorful to match web app, create table inside CSS, not in this code
+    make several generators for several size classrooms and several needs, select case
+
+  need user input to capture requirements, select case, ie;
+    max : 49, allow user input for size of class
+    num : 6, allow user input for size of needed group members
+
+    make random name generator by classroom, database/array, select case
+    make generator to randomize names from a central name database by classroom
+    make generator output several numbers or names in small list, select case
+    pull data from database/array, put pulled data into temp array to prevent duplicates
+
+RESEARCH
+  temp array to hold used data to prevent duplicates
+  user input, funnel into a function to be usable by program, function(), select case-->
