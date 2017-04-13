@@ -1,76 +1,76 @@
 .toppage{
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	height: 70px;
-	position: fixed;
-	display: inline-block;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 70px;
+    position: fixed;
+    display: inline-block;
 
 }
 
 #maintop{
-	background-color: #3498db;
-	text-decoration: none;
+    background-color: #3498db;
+    text-decoration: none;
 }
 
 #rrgtop{
-	background-color: #e74c3c;
+    background-color: #e74c3c;
 }
 
 
 #rrg{
-	background-color: #f6a4a4;
+    background-color: #f6a4a4;
 
 }
 
 #classtop{
-	background-color: #131A4B;
+    background-color: #131A4B;
 }
 
 
 #class{
-	background-color: #424a80;
+    background-color: #424a80;
 
 }
 
 #main{
-	background-color: #64b6ec;
+    background-color: #64b6ec;
 
 }
 
 #notestop{
-	background-color: #ff9800;
+    background-color: #ff9800;
 
 }
 #notes{
-	background-color: #f8f3c3;
+    background-color: #f8f3c3;
 
 
 }
 .menu{
-	padding-top: 70px;
-	padding-left: 10px;
-	
-	top: 0px;
-	left: 0px;
-	right: 0px;
+    padding-top: 70px;
+    padding-left: 10px;
+    
+    top: 0px;
+    left: 0px;
+    right: 0px;
 
 }
 
 #mainmenu p{
-	font-size: 50px;
-	font-family: "Segoe UI Light";
-	color: white;
+    font-size: 50px;
+    font-family: "Segoe UI Light";
+    color: white;
 }
 
 #mainmenu span{
-	font-weight: bold;
+    font-weight: bold;
 }
 
 #rrgmenu p{
-	font-size: 60px;
-	font-family: "Segoe UI Light";
-	color: white;
+    font-size: 60px;
+    font-family: "Segoe UI Light";
+    color: white;
 }
 
 }
@@ -89,7 +89,6 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
     padding: 15px;
 }
 
@@ -141,66 +140,66 @@ nav span {
 }
 
 #notesmenu{
-	color: black;
+    color: black;
 }
 
 .toppage h1{
-	padding-top: 7px;
-	padding-left:20px;
-	color: white;
-	
-	font-size: 20px;
+    padding-top: 7px;
+    padding-left:20px;
+    color: white;
+    
+    font-size: 20px;
 }
 .menu a{
-	text-decoration: none;
-	color: white;
+    text-decoration: none;
+    color: white;
 }
 
 .menu{
-	color: white;
+    color: white;
 }
 #mainmenu ul{
-	list-style-type: none;
-	font-size: 20px;
+    list-style-type: none;
+    font-size: 20px;
 }
 
 #mainmenu h2{
-	font-size: 26px;
+    font-size: 26px;
 }
 
 #one{
-	background-color: #ff9800;
-	padding: 15px;
-	margin: 15px;
+    background-color: #ff9800;
+    padding: 15px;
+    margin: 15px;
 
 }
 
 #two{
-	background-color: #ff4e4e;
-	padding: 15px;
-	margin: 15px;
+    background-color: #ff4e4e;
+    padding: 15px;
+    margin: 15px;
 
 }
 
 #three{
-	background-color: #a54040;
-	padding: 15px;
-	margin: 15px;
+    background-color: #a54040;
+    padding: 15px;
+    margin: 15px;
 
 
 
 }
 
 #four{
-	background-color: #009688;
-	padding: 15px;
-	margin: 15px;
+    background-color: #009688;
+    padding: 15px;
+    margin: 15px;
 }
 
 #five{
-	background-color: #3f51b5;
-	padding: 15px;
-	margin: 15px;
+    background-color: #3f51b5;
+    padding: 15px;
+    margin: 15px;
 }
 
 ul {
@@ -274,19 +273,19 @@ ul {
 }
 
 #subjEntry{
-	padding-top: 65px;
-	padding-left: 5px;
-	font-size: 20px;
+    padding-top: 65px;
+    padding-left: 5px;
+    font-size: 20px;
 }
 
 #insertClass{
-	padding-top: 50px;
+    padding-top: 50px;
 }
 
 #mainbody span{
-	display: inline-block;
-	width: 30%;
-	height: 30px;
+    display: inline-block;
+    width: 30%;
+    height: 30px;
 }
 
 #insertClass input{
@@ -320,17 +319,17 @@ input[name=submit] {
 }
 
 #mainbody input{
-	width: 60%;
+    width: 60%;
 }
 
 #mainbody select{
-	width: 61%;
-	height: 30px;
+    width: 61%;
+    height: 30px;
 }
 
 
 .field{
-	height: 20px;
+    height: 20px;
     width: 80%;
 }
 
@@ -338,8 +337,8 @@ input[name=submit] {
 
 
 .submitbut{
-	text-align: center;
-	padding-top: 10px;
+    text-align: center;
+    padding-top: 10px;
 
 }
 
@@ -366,12 +365,12 @@ select {
 }
 
 #notesmenu{
-	font-color: black;
+    font-color: black;
 }
 
 
 textarea{
-	width:95%;
+    width:95%;
 }
 
 #notecontent {
@@ -383,27 +382,94 @@ textarea{
 }
 
 .addbutton{
-	float: right;
-	padding-right: 10px;
+    float: right;
+    padding-right: 10px;
 
 }
 
 #addNoots{
-	display: none;
+    display: none;
 }
 
 #insertClass{
-	display: none;
+    display: none;
 }
 
 #listClasses{
-	padding-top: 50px;
+    padding-top: 50px;
 }
 
 #classDetails{
-	padding-top: 10px;
+    padding-top: 10px;
 }
 
+#rggmenu input{
+    padding: 10px;
+    color: #141414;
+    border: 0px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    background: white;
+    box-shadow: none;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 5px 0 5px 5px;
+
+}
+
+
+input[name=randomize] {
+    margin: 10px 20px 0 0;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white !important;
+    border-radius: 10px 10px 10px 10px;
+    background: #CE6A6A !important;
+    font-weight: 500 !important;
+}
+
+input[name=cler] {
+    float: right;
+    margin: 10px 20px 0 0;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white !important;
+    border-radius: 10px 10px 10px 10px;
+    background: #CE6A6A !important;
+    font-weight: 500 !important;
+}
+
+#showClasses{
+    padding-top: 0px;
+}
+
+/**classes input**/
+
+input[name=tard] {
+    border: 0px;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white !important;
+    border-radius: 25px;
+    background: #2A3169 !important;
+    font-weight: 500 !important;
+}
+
+input[name=pres] {
+    border: 0px;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white !important;
+    border-radius: 25px;
+    background: #2A3169 !important;
+    font-weight: 500 !important;
+}
 
 
 

@@ -60,7 +60,7 @@ function remindNow(){
 		
 	}
 	
-remindNow();
+		remindNow();
 
 	span.onclick = function() {
 		var lcl = localStorage.getItem("Notes")

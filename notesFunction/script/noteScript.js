@@ -84,7 +84,8 @@
 
 	function addNotes(){
 		if(document.getElementById("noteDet").yes.checked == true && document.getElementById("noteDet").dateTime.value == ""){
-			document.getElementById("disNotes").innerHTML = "You have to enter date and time!";
+			document.getElementById("alertLine").innerHTML = "You have to enter date and time!";
+			document.getElementById("addNoots").style = "display:none";
 		}else {
 			
 			if (localStorage.getItem("Notes") === null)  {
@@ -122,6 +123,7 @@
 
 			document.getElementById("noteDet").reset();
 			document.getElementById("alertLine").innerHTML = "";
+			showDaTi();
 			dispNotes();
 
 		}
