@@ -27,37 +27,41 @@ function remindNow(){
 		} 
 		if(hr<10){
 		    hr='0'+hr;
-		} 
+		}
 		var today = "'"+yyyy+"-"+mm+"-"+dd+"T"+hr+":"+min+"'";
 			today = today.replace(/'/g,"\"");
 		console.log(today);
 		for (var i = note.notes.length - 1; i >= 0; i--) {
 			console.log(note.notes[i].rem.dateT);
 			if(note.notes[i].rem.alert == "true" && JSON.stringify(note.notes[i].rem.dateT) == today){
-					let tit = notesJ.notes[i].descTitle;
-					let clss = notesJ.notes[i].class;
+					var tit = notesJ.notes[i].descTitle;
+					var clss = notesJ.notes[i].class;
 					if(notesJ.notes[i].description == ""){
-						desc = "No Description";
+						desc = "No description" ;
 					} else {
 						desc = notesJ.notes[i].description;
 					}
-					
+					/*desc = {
+						body: desc,
+						tag:'notification'
+					}*/ 
 					var rem;
 					if(notesJ.notes[i].rem.alert == "true"){
 						rem = notesJ.notes[i].rem.dateT.replace("T", " ");
 					} else {
 						rem = 'None';
 					}
+					Notify(tit, desc);
+					//var notif = new notification(tit, options);
 					hotmail =  "<h3>"+tit+"</h3><h4>"+clss+"</h4><div id='remSect'><p><span>Reminder: </span><span>"+rem+"</span></p></div><p>"+desc+"</p>";
 					hotmail = hotmail.replace(/'/g,"\"");
 					document.getElementById("remCont").innerHTML = hotmail;
 					modal.style = 'display:block';
-					indx = i;
+					indx = i;	  
+					console.log(i);
 			}
 		}
-
-		setTimeout(remindNow, 9000);
-		
+		setTimeout(remindNow, 2000);
 	}
 	
 remindNow();
@@ -70,4 +74,35 @@ remindNow();
 		console.log(note.notes[indx].rem)
 		note = JSON.stringify(note);
 		localStorage.setItem("Notes",note);
+	}
+
+ var notification = window.Notification || window.mozNotification || window.webkitNotification;
+
+	if ('undefined' === typeof notification)
+	    alert('Web notification not supported');
+	else
+	    notification.requestPermission(function(permission){});
+
+	function Notify(titleText, bodyText)
+	{
+	    if ('undefined' === typeof notification)
+	        return false;
+	    var noty = new notification( titleText, {
+	            body: bodyText,
+	            tag: 'notificationPopup'
+	        }
+	    );
+	    noty.onclick = function () {
+	        console.log('notification.Click');
+	    };
+	    noty.onerror = function () {
+	        console.log('notification.Error');
+	    };
+	    noty.onshow = function () {
+	        console.log('notification.Show');
+	    };
+	    noty.onclose = function () {
+	        console.log('notification.Close');
+	    };
+	    return true;
 	}

@@ -5,8 +5,7 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
-
-/* show and hide sections*/
+/* show and hide div for adding of notes*/
 function toggle_visibility(id) {
     var e = document.getElementById(id);
     if (e.style.display == 'block')
