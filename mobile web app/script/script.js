@@ -4,6 +4,7 @@
 				Our previous AJAX function. Decided to move with new one named
 				doOtherAjax()
 		*/
+		readFromLocalStorage();
 		function doAjax(){
 			var xhttp = new XMLHttpRequest();
 			var url = "http://www.html1.com/students.json";
@@ -19,13 +20,26 @@
 			xhttp.send();
  		}
 
-
+ 		function getJsonFileFromServer(){
+ 			var xhttp = new XMLHttpRequest();
+			var url = "http://www.html1.com/students.json";
+			var awef;
+			xhttp.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+					students = JSON.parse(this.responseText);
+					return students;
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();			
+ 		}
 
  		/**
  				Does an AJAX request for the JSON script in the server containing
  				all the information about the classes that the teacher will be handling
  		*/	
  		function doOtherAjax(){
+ 			try{
  			var xhttp = new XMLHttpRequest();
  			var url = "http://www.html1.com/checklist.json";
  			var awef;
@@ -37,7 +51,10 @@
 				}
 			};
 			xhttp.open("GET",url,true);
-			xhttp.send(); 			
+			xhttp.send();
+			}catch(ex){
+				alert("Server Connection Failed! Cannot Synchronize");
+			} 			
  		}
 
  		/**
@@ -52,9 +69,10 @@
  				var CourseCode = checklist.Classes[count].CourseCode;
  				var CourseStart = checklist.Classes[count].CourseStart;
  				var CourseNumber = checklist.Classes[count].CourseNumber;
+ 				var CourseStartT = checklist.Classes[count].CourseStartT;
  				key = CourseNumber + "-" + CourseCode + "-" + CourseStart;
  				var arr = checklist.Classes[count].Students;
- 				var jsonObj = {"courseNum":CourseNumber,"classCode":CourseCode,"CourseStart":CourseStart,"Student":arr};
+ 				var jsonObj = {"courseNum":CourseNumber,"classCode":CourseCode,"CourseStart":CourseStart,"CourseStartT":CourseStartT,"Student":arr};
  				console.log(jsonObj);
  				localStorage.setItem(key,JSON.stringify(jsonObj));
  				courses.push({"CourseKey":key});
@@ -99,7 +117,7 @@
  			var awef = document.getElementById("classSelect");
  			var index = awef.options[awef.selectedIndex].value;
  			var myObj = JSON.parse(localStorage.getItem(index));
- 			document.getElementById("classTitle").innerHTML = "<h2> Classcode: " + myObj.classCode + "(" + myObj.CourseStart + ")";
+ 			document.getElementById("classTitle").innerHTML = "<h2> Classcode: " + myObj.classCode + "(" + myObj.CourseStartT + ")";
  			var butt = "<input type='button' name='Add Student' value='Add Student!' onclick='addStud()'>";
  				butt = butt.replace(/'/g,"\"");
  			document.getElementById("classTitle").lastChild.innerHTML += butt;
@@ -166,9 +184,10 @@
 				Displays the students that are in the class
 		*/
  		function displayStud(){
- 			var listInfo = document.getElementById("classSelect")
+ 			var listInfo = document.getElementById("classSelect");
  			var index = listInfo.options[listInfo.selectedIndex].value;
- 			var jsonObj = JSON.parse(localStorage.getItem(index));
+ 			var studList = JSON.parse(localStorage.getItem(index)).Student;
+ 			var jsonObj = studList.sort(predicateBy("Name"));
  			console.log(jsonObj); 
  			//var toPrintTo = document.getElementById("seatPlan");
  			//var courseNum = jsonObj.courseNum;
@@ -179,17 +198,11 @@
  			//var classStudents = JSON.parse(localStorage.getItem(studentKey));
  			//console.log(classStudents);
  			//console.log(classStudents.Students);
- 			for(var count = 0; count < jsonObj.Student.length; count++){
+ 			for(var count = 0; count < jsonObj.length; count++){
  				if(count == 0){
- 					document.getElementById("seatPlan").innerHTML = "<h3> " + "Name: " + 
- 																				jsonObj.Student[count].Name +
- 																					" " + "ID Number: " + 
- 																						jsonObj.Student[count].ID;
+ 					document.getElementById("seatPlan").innerHTML = "<input name='student' type='checkbox' value=" + jsonObj[count].ID +" />" +  jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "<br />";
  				}else{
- 					document.getElementById("seatPlan").innerHTML += "<h3> " + "Name: " + 
- 																				jsonObj.Student[count].Name +
- 																					" " + "ID Number: " + 
- 																						jsonObj.Student[count].ID;
+ 					document.getElementById("seatPlan").innerHTML += "<input name='student' type='checkbox' value=" + jsonObj[count].ID +" />" +  jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "<br />";
  				}
  			}
  		}
@@ -205,28 +218,369 @@
  	}
 
  	function randomize(){
-  			var listInfo = document.getElementById("classSelect1")
+  			var listInfo = document.getElementById("classSelect")
  			var index = listInfo.options[listInfo.selectedIndex].value;
  			var jsonObj = JSON.parse(localStorage.getItem(index));
  			console.log(jsonObj);
- 			var randNum = Math.ceil((Math.random()*(jsonObj.Student.length - 1));
- 			console.log(Math.ceil((Math.random()*(jsonObj.Student.length - 1)));
- 			var luckyStud = jsonObj.Student[3];
+ 			var randNum = Math.ceil((Math.random()*(jsonObj.Student.length - 1)));
+ 			console.log(Math.ceil((Math.random()*(jsonObj.Student.length - 1))));
+ 			var luckyStud = jsonObj.Student[randNum];
  			console.log(luckyStud);
+ 			document.getElementById("luckyStudent").innerHTML = "<h4> " + "The lucky student is " + "</h4>";
+ 			document.getElementById("luckyStudent").innerHTML = "<h5> " + luckyStud.Name;
  	}
 
+
+ 	function groupRandomize(){
+ 			//Add more functinoality to this. Group by male/female or by student.
+ 			//By student number
+ 			//Display groups by ascending/descending order
+  			var listInfo = document.getElementById("classSelect");
+ 			var index = listInfo.options[listInfo.selectedInts.length-1));
+
+ 				tempGroups.push(students[randNumber]);
+ 				if(tempGroups.length == numberOfMembers){
+ 					groups.push(tempGroups);
+ 					tempGroups = []
+ 					groupNum++;
+ 				}
+ 				students.splice(randNumber,1)
+ 			}
+ 			console.log(groups);
+ 			console.log(tempGroups);
+ 			test = false;
+ 			if(tempGroups.length < numberOfMembers -1){
+ 				for(var count2 = 0; count2 < groups.length && test == false; count2++){
+ 					if(tempGroups.length != 0){
+ 						var memberToPut = tempGroups[0];
+ 						groups[count2].push(memberToPut);				
+ 						tempGroups.splice(0,1);
+ 					}else if(tempGroups.length == 0){
+ 						test = true;
+ 					}
+
+
+ 					if(count2 == groups.length - 2){
+ 						count2 = 0;
+ 					}
+ 				}
+ 			}
+
+ 	}
+
+ 	function displayGroups(){
+
+ 	}
+
+	function getDateToday(){
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth() + 1;
+		var yyyy = today.getFullYear();
+
+		if(dd < 10){
+			dd = '0' + dd;
+		}
+
+		switch(mm){
+			case 1:
+				mm = "Jan";
+				break;
+			case 2:
+				mm = "Feb";
+				break;
+			case 3:
+				mm = "Mar";
+				break;
+			case 4:
+				mm = "Apr";
+				break;
+			case 5:
+				mm = "May";
+				break;
+			case 6:
+				mm = "Jun";
+				break;
+			case 7:
+				mm = "Jul";
+				break;
+			case 8:
+				mm = "Aug";
+				break;
+			case 9:
+				mm = "Sep";
+				break;
+			case 10:
+				mm = "Oct";
+				break;
+			case 11:
+				mm = "Nov";
+				break;
+			case 12:
+				mm = "Dec";
+				break;
+		}
+		today = mm+"-"+dd+"-"+yyyy;
+		return today;
+	}
+
 	function markAbsent(){
+		//insert array of absent students
+		//Check to see if there is already an input for the attention log today in the attendance
+		//if not then create, if there is then just continue.]
+
 		var course = document.getElementById("classSelect");
-		var index = course.options[awef.selectedIndex].value;
+		var index = course.options[course.selectedIndex].value;
 		var myObj = JSON.parse(localStorage.getItem(index));
-		temp;
-		for(var count = 0; count < myObj.Student.length; count++){
-			if(myObj.Student[count].Name == student){
-				temp = myObj.Student[count];
+		var highlightedStudents = getHighlightedStudents();
+		console.log(highlightedStudents);
+		var attendanceKey = "attendance-" + index;
+		attendance = JSON.parse(localStorage.getItem(attendanceKey));
+		var test = false;
+		var dit = getDateToday();
+		for(var count2 = 0; count2 < attendance.length; count2++){
+			if(attendance[count2].Date == getDateToday()){
+				test = true;
 				break;
 			}
 		}
 
+		if(!test){
+			createAttentionLog();
+			attendance = JSON.parse(localStorage.getItem(attendanceKey));
+		}
+		try{
+			for(var count = 0; count < highlightedStudents.length; count++){
+				var id = highlightedStudents[count];
+				console.log(id);
+				for(var count1 = 0; count1 < myObj.Student.length; count1++){
+					if(id == myObj.Student[count1].ID){
+						console.log(myObj.Student[count1]);
+						attendance[attendance.length - 1].Absent.push(myObj.Student[count1]);
+					}
+				}
+			}
+		}catch(awef){
+			alert("You have not selected a student!");
+		}
+
+		localStorage.setItem(attendanceKey,JSON.stringify(attendance));
+		console.log("Success");
+	}
+
+	function markTardy(){
+		//insert array of absent students
+		//Check to see if there is already an input for the attention log today in the attendance
+		//if not then create, if there is then just continue.
+		var course = document.getElementById("classSelect");
+		var index = course.options[course.selectedIndex].value;
+		var myObj = JSON.parse(localStorage.getItem(index));
+		var highlightedStudents = getHighlightedStudents();
+		console.log(highlightedStudents);
 		var attendanceKey = "attendance-" + index;
-		console.log(JSON.parse(localStorage.getItem(attendanceKey)));
+		var test = false;
+		attendance = JSON.parse(localStorage.getItem(attendanceKey));
+		for(var count2 = 0; count2 < attendance.length; count2++){
+			if(attendance[count2].Date == getDateToday()){
+				test = true;
+				break;
+			}
+		}
+
+		if(!test){
+			createAttentionLog();
+			attendance = JSON.parse(localStorage.getItem(attendanceKey));
+		}
+		try{
+			for(var count = 0; count < highlightedStudents.length; count++){
+				var id = highlightedStudents[count];
+				console.log(id);
+				for(var count1 = 0; count1 < myObj.Student.length; count1++){
+					if(id == myObj.Student[count1].ID){
+						console.log(myObj.Student[count1]);
+						attendance[attendance.length - 1].Tardy.push(myObj.Student[count1]);
+					}
+				}
+			}
+		}catch(efw){
+			alert("You have not selected a student")
+		}
+
+		localStorage.setItem(attendanceKey,JSON.stringify(attendance));
+		console.log("Success");
+	}
+
+
+	function createAttentionLog(){
+		var course = document.getElementById("classSelect");
+		console.log(course);
+		var index = course.options[course.selectedIndex].value;
+		console.log(index);
+		var myObj = JSON.parse(localStorage.getItem(index));
+
+		var attendanceKey = "attendance-"+index;
+		var attendanceObj = JSON.parse(localStorage.getItem(attendanceKey));
+		var date = getDateToday();
+		var attendanceLog = {"Date":date,"Absent":[],"Tardy":[]};
+		attendanceObj.push(attendanceLog);
+		localStorage.setItem(attendanceKey,JSON.stringify(attendanceObj));
+	}
+
+
+
+	function showAttendance(){
+		var course = document.getElementById("classSelect");
+		var index = course.options[course.selectedIndex].value;
+		var myObj = JSON.parse(localStorage.getItem(index));
+
+		var attendanceKey = "attendance-" + index;
+		var attendanceStorage = JSON.parse(localStorage.getItem(attendanceKey));
+		console.log(attendanceStorage);
+	}
+
+	function getHighlightedStudents(){
+		var checkboxes = document.getElementsByName("student");
+		var checkBoxesChecked = [];
+
+		for(var count = 0; count < checkboxes.length; count++){
+			if(checkboxes[count].checked){
+				checkBoxesChecked.push(checkboxes[count].value);
+			}
+		}
+
+		return checkBoxesChecked.length > 0 ? checkBoxesChecked : null;
+	}
+
+
+	function notesForTheThingy(){
+		//Add more functionality for the notes part 
+		//Add more stuff for the notes 
+	}
+
+
+
+	function predicateBy(prop){
+		return function(a,b){
+			if(a[prop] > b[prop]){
+				return 1;
+			}else if(a[prop] < b[prop]){
+				return -1;
+			}
+			return 0;
+		}
+	}
+
+	function uncheckHighlightedStudents(){
+		var checkboxes = document.getElementsByName("student");
+		console.log(checkboxes);
+		for(var count = 0; count < checkboxes.length; count++){
+			//if(checkboxes[count].checked)
+		}
+	}
+
+	function displayAttendance(){
+		var course = document.getElementById("classSelect");
+		var index = course.options[course.selectedIndex].value;
+		var myObj = JSON.parse(localStorage.getItem(index));
+		var attendanceKey = "attendance-" + index;
+		var attBody = document.getElementById("AttBody");
+		//Try showing the attendance for today
+		//Create a drop down that lists the attendance or that day
+		//Display absentees and the guys who are tardy.
+		var date = document.getElementById("DateSelect");
+		var dateVal = date.options[date.selectedIndex].value;
+		var attObj = JSON.parse(localStorage.getItem(attendanceKey))
+
+		for(var count = 0; count < attObj.length; count++){
+			if(dateVal == attObj[count].Date){
+				
+				for(var count2 = 0; count2 < attObj[count].Absent.length; count2++){
+					var attbod = document.getElementById("AttBody");
+					attbod.innerHTML = "<h4> Absentees";
+					if(attObj[count].Absent.lenght == 0){
+						attbod.innerHTML += "<h5> There are no absentees for today ";
+						break;
+					}else{
+						console.log(attObj[count].Absent[count2].Name)
+						attbod.innerHTML += "<h5> " + attObj[count].Absent[count2].Name;
+					}
+ 				}
+				
+ 				for(var count3 = 0; count3 < attObj[count].Tardy.length; count3++){
+ 					var attbod = document.getElementById("AttBody");
+ 					attbod.innerHTML += "<h4> Tardy";
+ 					if(attObj[count].Tardy.length == 0){
+ 						attbod.innerHTML += "<h5> There are no tardy people for today";
+ 					}else{
+ 						attbod.innerHTML += "<h5> " + attObj[count].Tardy[count3].Name;
+ 					}
+ 				}
+ 				break;
+			}
+		}
+	}
+
+	//Fail safe
+	function readFromLocalStorage(){
+		//Read The Courses Log
+		//If there's stuff there then display
+		//If there's nothing there then say. You have no classes yet!
+
+		if(!checkLocalStorage){
+			document.getElementById("classTitle")
+		}
+		var courses = JSON.parse(localStorage.getItem("Courses"));
+		if(courses.length != 0){
+			for(var count = 0; count < courses.length; count++){
+				var courseObj = courses[count];
+				var courseKey = courseObj.CourseKey;
+				var opt = document.createElement("option");
+					document.getElementById("classSelect").append(opt);
+					document.getElementById("classSelect").lastChild.innerHTML = courseKey;
+
+			}
+		}
+	}
+	//Fail safe
+	function checkLocalStorage(){
+		var courses = JSON.parse(localStorage.getItem("Courses"));
+		if(courses.length == undefined || courses.length == 0){
+			return false;
+		}else{
+			return true;
+		}
+	}
+
+	function fillDateDrop(){
+		var course = document.getElementById("classSelect");
+		var index = course.options[course.selectedIndex].value;
+		var myObj = JSON.parse(localStorage.getItem(index));
+		var attendanceKey = "attendance-" + index;
+		var arr = JSON.parse(localStorage.getItem(attendanceKey));
+		console.log(arr[0]);
+		for(var count = 0; count < arr.length; count++){
+			var date = arr[count].Date;
+			var list = document.getElementById("DateSelect");
+			list.innerHTML += "<option> " + date;
+		}		
+	}
+
+	function groupAlphabetically(){
+		var course = document.getElementById("classSelect");
+		var index = course.options[course.selectedIndex].value;
+		var myObj = JSON.parse(localStorage.getItem(index));
+		var attendanceKey = "attendance-" + index;
+		var arr = JSON.parse(localStorage.getItem(attendanceKey));
+	}
+
+	function groupByGender(){
+		var course = document.getElementById("classSelect");
+		var index = course.options[course.selectedIndex].value;
+		var myObj = JSON.parse(localStorage.getItem(index));
+		var attendanceKey = "attendance-" + index;
+		var arr = JSON.parse(localStorage.getItem(attendanceKey));
+	}
+
+	function alreadyMarked(){
+
 	}

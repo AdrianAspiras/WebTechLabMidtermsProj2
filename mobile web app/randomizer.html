@@ -4,13 +4,18 @@
 		<title>Recitation Randomizer</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
-		<script type="text/javascript" src="script/script.js"></script>	
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-    	<script src="script/design.js"></script>
-		<script type="text/javascript" src="script/NewJS.js"></script>
+    	<script defer src="script/design.js"></script>
+		<script defer type="text/javascript" src="script/GroupCreator.js"></script>
 	</head>
 
 	<body id="rrg">
+		<div id="disPopUp" class="popUp">
+                <div id="popCont">
+                    <span id="close">&times;</span>
+                    <span id="remCont"></span>
+                </div>
+            </div>
 		<div id="mySidenav" class="sidenav">
 	        <h1>My Virtual Assistant</h1>
 	        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -32,20 +37,22 @@
 		</header>
 
 		<div id="rggmenu" class="menu">
-
+			
 			<div id="showClasses" class="menu">
 
 				<h2>Classes</h2>
 				<select id="classSelect" onchange="getVal()">	
+				
 				</select>
 			</div>
 			<div id="IndividualRandomizer">
 				<h3>Rectitation randomizer</h3>
-				<input type="button" name="randomize" value="GO!" onclick="randomize()">
-
 				<div id="luckyStudent">
 
 				</div>
+				<input type="button" name="randomize" value="GO!" onclick="randomize()">
+
+				
 			</div>
 
 			<div id="GroupRandomizer">
@@ -59,20 +66,20 @@
 				</select>
 				<br />
 				<form id="Selec">			
-						<input type="radio" id="ByGroup" name="gr"/>By Group
-						<input type="radio" id="ByMember" name="gr"/>By Member
+						<input type="radio" id="ByGroup" name="gr" checked="checked" onclick="groupingType()"/>By Group
+						<input type="radio" id="ByMember" name="gr" onclick="groupingType()"/>By Member
 				</form>
 
 				<form id="actRand">
 					<br />
-					Enter proposed number of members per group here <input type="text" name="numOfGroups" value="">
+					<span id="Moder">Enter proposed number of members per group here</span> <input type="text" name="numOfGroups" value="">
 				</form>
-				<input id="YerMom" type="button" name="randomize" value="Create Groups!" onclick="chooseRandomizer()">
+				<input id="YerMom" type="button" name="randomize" value="Create Groups!" onclick="">
 				<div id="studsPerClass">
 				</div>
 				<div id="Groups">
 				</div>
-				<input id="Clear" type="button" name="cler" value="Clear!" onclick="ClearGroups()"/>
+				<input id="Clear" type="button" name="cler" value="Clear!" onclick="clearGroups()"/>
 			</div>
 		</div>
 	</body>

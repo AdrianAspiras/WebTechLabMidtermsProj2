@@ -171,6 +171,7 @@ nav span {
     background-color: #ff9800;
     padding: 15px;
     margin: 15px;
+    border-radius: 25px;
 
 }
 
@@ -178,28 +179,16 @@ nav span {
     background-color: #ff4e4e;
     padding: 15px;
     margin: 15px;
-
+    border-radius: 25px;
 }
 
 #three{
     background-color: #a54040;
     padding: 15px;
     margin: 15px;
+    border-radius: 25px;
 
 
-
-}
-
-#four{
-    background-color: #009688;
-    padding: 15px;
-    margin: 15px;
-}
-
-#five{
-    background-color: #3f51b5;
-    padding: 15px;
-    margin: 15px;
 }
 
 ul {
@@ -471,5 +460,25 @@ input[name=pres] {
     font-weight: 500 !important;
 }
 
+#seatPlan label{
+    line-height:30px;
+    font-size: 20px;
+}
 
+input[type=checkbox]{
+    display: none;   
+}
 
+input[type=checkbox]:checked + label{
+    color: #00FF00;
+
+}
+
+#Groups{
+    line-height: 10px;
+}
+
+#rggmenu h5{
+    text-align: center;
+    font-size: 30px;
+}
