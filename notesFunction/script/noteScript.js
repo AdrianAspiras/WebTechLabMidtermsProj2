@@ -81,11 +81,19 @@
 		dispNotes();
 	}
 
+	function showDaTi(){
+		var spanWhen = document.getElementById("dtSect"); 
+		if(document.getElementById("noteDet").yes.checked == false){
+			spanWhen.style ='display:none';
+		} else {
+			spanWhen.style ='display:block';
+		}
+	}
+
 
 	function addNotes(){
 		if(document.getElementById("noteDet").yes.checked == true && document.getElementById("noteDet").dateTime.value == ""){
-			document.getElementById("alertLine").innerHTML = "You have to enter date and time!";
-			document.getElementById("addNoots").style = "display:none";
+			document.getElementById("disNotes").innerHTML = "You have to enter date and time!";
 		}else {
 			
 			if (localStorage.getItem("Notes") === null)  {

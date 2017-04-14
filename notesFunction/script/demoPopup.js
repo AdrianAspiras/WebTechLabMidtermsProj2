@@ -64,7 +64,7 @@ function remindNow(){
 		setTimeout(remindNow, 2000);
 	}
 	
-		remindNow();
+remindNow();
 
 	span.onclick = function() {
 		var lcl = localStorage.getItem("Notes")
@@ -76,6 +76,8 @@ function remindNow(){
 		localStorage.setItem("Notes",note);
 	}
 
+	
+ var noty;
  var notification = window.Notification || window.mozNotification || window.webkitNotification;
 
 	if ('undefined' === typeof notification)
@@ -87,22 +89,24 @@ function remindNow(){
 	{
 	    if ('undefined' === typeof notification)
 	        return false;
-	    var noty = new notification( titleText, {
+	    noty = new notification( titleText, {
 	            body: bodyText,
-	            tag: 'notificationPopup'
+	            tag: 'notificationPopup',
+	            vibrate: [100, 300, 100, 100, 100]
 	        }
 	    );
 	    noty.onclick = function () {
 	        console.log('notification.Click');
 	    };
-	    noty.onerror = function () {
-	        console.log('notification.Error');
-	    };
-	    noty.onshow = function () {
-	        console.log('notification.Show');
-	    };
 	    noty.onclose = function () {
 	        console.log('notification.Close');
+	        var lcl = localStorage.getItem("Notes")
+			var note = JSON.parse(lcl);
+		    modal.style.display = "none";
+		    note.notes[indx].rem.alert = false;
+			console.log(note.notes[indx].rem)
+			note = JSON.stringify(note);
+			localStorage.setItem("Notes",note);
 	    };
-	    return true;
+	    return true; 
 	}
