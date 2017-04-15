@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 		<script defer type="text/javascript" src="script/classScript.js"></script>	
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+		<script defer type="text/javascript" src="script/demoPopup.js"></script>
     	<script src="script/design.js"></script>
 	</head>
 
@@ -16,15 +17,14 @@
                 </div>
             </div>
 		<div id="mySidenav" class="sidenav">
-	        <h1>My Virtual Assistant</h1>
-	        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	        <a href="./index.html">Home</a>
-	        <a href="./notes.html">Notes</a>
-	        <a href="./randomizer.html">Randomizer</a>
-	        <a href="./class.html">Classes</a>
-
-	    </div>
-		
+			<h1>Virtual Lesson Plan</h1>
+		    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		    <a href="./index.html">Home</a>
+		    <a href="./notes.html">Notes</a>
+		    <a href="./randomizer.html">Randomizer</a>
+		    <a href="./class.html">Classes</a>
+		    <a href="./attendance.html">Attendance</a>
+		</div>
 
 
 		<div id="maintop" class="toppage">
@@ -36,15 +36,22 @@
 
 
 
+
+
 		<div id="mainmenu" class="menu">
+			<div id="dispRemNotes">
+			</div>
 			<ul>
 				<div id="one"><li><a href="./notes.html">Notes</a></li></div>
 				<div id="two"><li><a href="./recitationrandomizer.html">Group Randomizer</a></li></div>
 				<div id="three"><li><a href="./class.html"></a></li>Classes</div>
+				<div id="four"><li><a href="./attendace.html"></a></li>Attendance</div>
 				
 			</ul> 
 			<h2>Your Classes Today:</h2>
+			<div id="classToday">
 			kill yourself
+			</div>
 
 			
 		</div>
