@@ -3,11 +3,13 @@
 	<head>
 		<title>Class</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
-		<script defer type="text/javascript" src="script/script.js"></script>	
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+
 		<script defer type="text/javascript" src="script/demoPopup.js"></script>
+		<script defer type="text/javascript" src="script/DisplayAttendance."></script>
     	<script src="script/design.js"></script>
+
 	</head>
 
 	<body id="attendanceBody">
@@ -41,9 +43,19 @@
 				
 			</div >
 		</header>
+		<div id="classAttendance" class="menu">
 
-		<div id="Attendance" class="menu">
+				<h2>Classes</h2>
+				<select id="classSelect" onchange="selectSortingType()">	
+				
+				</select>
+		</div>
+		<div id="attendance" class="menu">
 				<h3>Attendance</h3>
+				<form id="selectType">
+					<input id="dateSort" type="radio" name="sortType" value="By Date" checked="checked" onclick="selectSortingType()" />By Date
+					<input id="studSort" type="radio" name="sortType" vale="By Student" onclick="selectSortingType()"/>By Student
+				</form>
 				<select id="DateSelect" onchange="displayAttendance()">
 					
 				</select>
