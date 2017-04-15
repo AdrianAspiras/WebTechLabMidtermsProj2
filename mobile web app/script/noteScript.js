@@ -13,7 +13,6 @@
 			    //classes = classes.replace(/'/g,"\""); 
 			//var classNem = JSON.parse(classes);
 			var classNem = JSON.parse(localStorage.getItem("classNames"));
-			console.log(classNem.classNames.length)
 			for(var count = 0; count < classNem.classNames.length; count++){
 				var opt = document.createElement("option");
 				document.getElementById("classSelect").append(opt);
@@ -38,11 +37,21 @@
 	for (var i = notesJ.notes.length - 1; i >= 0; i--) {
 		let tit = notesJ.notes[i].descTitle;
 		let clss = notesJ.notes[i].class;
-		let desc = notesJ.notes[i].description;
-		hotmail =  "<div class='note'><h3>"+tit+"</h3><h4>"+clss+"</h4><p>"+desc+"</p><input type='button' name='Delet' value='Delete' onclick='deletNote("+i+")'></div>";
+		if(notesJ.notes[i].description == ""){
+			desc = "No Description";
+		} else {
+			desc = notesJ.notes[i].description;
+		}
+		
+		var rem;
+		if(notesJ.notes[i].rem.alert == "true"){
+			rem = notesJ.notes[i].rem.dateT.replace("T", " ");
+		} else {
+			rem = 'None';
+		}
+		hotmail =  "<div class='note'><h3>"+tit+"</h3><h4>"+clss+"</h4><div id='remSect'><p><span>Reminder: </span><span>"+rem+"</span></p></div><p>"+desc+"</p><input type='button' name='Delet' value='Delete' onclick='deletNote("+i+")'></div>";
 		hotmail = hotmail.replace(/'/g,"\"");
 		document.getElementById("disNotes").innerHTML += hotmail;
-		
 	}
 	var len = document.getElementsByClassName("note").length;
 	/*for (var i = len- 1; i >= 0; i--) {
@@ -70,44 +79,71 @@
 		dispNotes();
 	}
 
+	function showDaTi(){
+		var spanWhen = document.getElementById("dtSect"); 
+		if(document.getElementById("noteDet").yes.checked == false){
+			spanWhen.style ='display:none';
+		} else {
+			spanWhen.style ='display:block';
+		}
+	}
+
 
 	function addNotes(){
-		if (localStorage.getItem("Notes") === null)  {
- 			var nNote = "{'notes':[]}";
- 				nNote = nNote.replace(/'/g,"\"");
- 			localStorage.setItem("Notes",nNote);
- 			}
- 		
-		var title = document.getElementById("noteDet").tit.value;
-			if(document.getElementById("noteDet").tit.value == ""){
-				title = "None";
+		if(document.getElementById("noteDet").yes.checked == true && document.getElementById("noteDet").dateTime.value == ""){
+			document.getElementById("disNotes").innerHTML = "You have to enter date and time!";
+		}else {
+			
+			if (localStorage.getItem("Notes") === null)  {
+	 			var nNote = "{'notes':[]}";
+	 				nNote = nNote.replace(/'/g,"\"");
+	 			localStorage.setItem("Notes",nNote);
+	 			}
+	 		
+			var title = document.getElementById("noteDet").tit.value;
+				if(document.getElementById("noteDet").tit.value == ""){
+					title = "None";
+				}
+			var watClass = document.getElementById("classSelect").options[document.getElementById("classSelect").selectedIndex].value;
+			var desc = document.getElementById("tArea").value;
+				desc = desc.replace(/\n/g,' &#13;&#10; ');
+			var remBool;
+				if(document.getElementById("noteDet").yes.checked == true){
+					remBool = true;
+				} else {
+					remBool = false;
+				}
+			var remDate = document.getElementById("noteDet").dateTime.value;
+			console.log(remDate);
+			var newNote = "{'descTitle':'"+title+"','description':'"+desc+"','class':'"+watClass+"','rem':{'alert':'"+remBool+"','dateT':'"+remDate+"'}}";
+				newNote = newNote.replace(/'/g,"\"");
+			console.log(newNote);
+			newNoteJ = JSON.parse(newNote);
+			var savedNote = JSON.parse(localStorage.getItem("Notes"));
+			savedNote.notes.push(newNoteJ);
+			savedNote = JSON.stringify(savedNote);
+			localStorage.setItem("Notes",savedNote);
+			while(document.getElementById("disNotes").firstChild){
+				document.getElementById("disNotes").removeChild(document.getElementById("disNotes").firstChild);
 			}
-		var watClass = document.getElementById("classSelect").options[document.getElementById("classSelect").selectedIndex].value;
-		var desc = document.getElementById("tArea").value;
-			desc = desc.replace(/\n/g,' &#13;&#10; ');
-		var remBool;
-			if(document.getElementById("noteDet").yes.checked == true){
-				remBool = true;
-			} else {
-				remBool = false;
-			}
-		var remDate = document.getElementById("noteDet").dateTime.value;
-		console.log(remDate);
-		var newNote = "{'descTitle':'"+title+"','description':'"+desc+"','class':'"+watClass+"','rem':{'alert':'"+remBool+"','dateT':'"+remDate+"'}}";
-			newNote = newNote.replace(/'/g,"\"");
-		console.log(newNote);
-		newNoteJ = JSON.parse(newNote);
-		var savedNote = JSON.parse(localStorage.getItem("Notes"));
-		savedNote.notes.push(newNoteJ);
-		savedNote = JSON.stringify(savedNote);
-		localStorage.setItem("Notes",savedNote);
-		while(document.getElementById("disNotes").firstChild){
-			document.getElementById("disNotes").removeChild(document.getElementById("disNotes").firstChild);
-		}
-		dispNotes();
 
-		document.getElementById("noteDet").reset();
+			document.getElementById("noteDet").reset();
+			document.getElementById("alertLine").innerHTML = "";
+			showDaTi();
+			dispNotes();
+
+		}
 	}
+
+	function showDaTi(){
+		var spanWhen = document.getElementById("dtSect"); 
+		if(document.getElementById("noteDet").checkboxTwoInput.checked == false){
+			spanWhen.style ='display:none';
+		} else {
+			spanWhen.style ='display:block';
+		}
+	}
+	showDaTi();
 
 	span.onclick = function() {
 	    modal.style.display = "none";
@@ -115,5 +151,31 @@
 		console.log(note.notes[indx].rem)
 		localStorage.setItem("Notes",note);
 	}
+function getDateToday(){
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; //January is 0!
+
+		var yyyy = today.getFullYear();
+		var hr = today.getHours();
+		var min = today.getMinutes();
+		if(dd<10){
+		    dd='0'+dd;
+		} 
+		if(mm<10){
+		    mm='0'+mm;
+		} 
+		if(min<10){
+		    min='0'+min;
+		} 
+		if(hr<10){
+		    hr='0'+hr;
+		}
+		var today = "'"+yyyy+"-"+mm+"-"+dd+"T"+hr+":"+min+"'";
+			today = today.replace(/'/g,"\"");
+
+		return today;
+	}
+
 
 
