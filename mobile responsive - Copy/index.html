@@ -2,6 +2,7 @@
 	<html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 		<script defer type="text/javascript" src="script/classScript.js"></script>	
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
@@ -9,7 +10,7 @@
 	</head>
 
 	<body id="main">
-		<div id="mySidenav" class="sidenav">
+		<nav id="mySidenav" class="sidenav">
 	        <h1>My Virtual Assistant</h1>
 	        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		    <a href="./index.html">Home</a>
@@ -17,36 +18,28 @@
 		    <a href="./randomizer.html">Randomizer</a>
 		    <a href="./class.html">Classes</a>
 		    <a href="./attendance.html">Attendance</a>
-	    </div>
+	    </nav>
 		
-
-
 		<div id="maintop" class="toppage">
-
 			<h1><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>  Virtual Lesson Plan</h1>
-
-			
 		</div>
 
+		<main id="mainmenu" class="menu">
+			<section>
+				<ul>
+					<div id="one"><li><a href="./notes.html">Notes</a></li></div>
+					<div id="two"><li><a href="./recitationrandomizer.html">Group Randomizer</a></li></div>
+					<div id="three"><li><a href="./class.html"></a></li>Classes</div>
+				</ul> 
+			</section>
 
-
-		<div id="mainmenu" class="menu">
-			<ul>
-				<div id="one"><li><a href="./notes.html">Notes</a></li></div>
-				<div id="two"><li><a href="./recitationrandomizer.html">Group Randomizer</a></li></div>
-				<div id="three"><li><a href="./class.html"></a></li>Classes</div>
-				
-			</ul> 
-			<h2>Your Classes</h2>
-
-			<ul>
-				<div id="four"><li>IT 324 Websystems and Technologies</li></div>
-				<div id="five"><li>IT 324 Websystems and Technologies</li></div>
-			</ul>
-			
-
-
-			
-		</div>
+			<section>
+				<h2>Your Classes</h2>
+				<ul>
+					<div id="four"><li>IT 324 Websystems and Technologies</li></div>
+					<div id="five"><li>IT 324 Websystems and Technologies</li></div>
+				</ul>
+			</section>
+		</main>
 	</body>
 </html>
