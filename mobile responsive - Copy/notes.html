@@ -4,7 +4,6 @@
 <head>
     <title>Notes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/reset.css" media="screen">
     <link rel="stylesheet" type="text/css" href=" css/noteStyle.css " media="screen">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
@@ -14,16 +13,16 @@
 </head>
 
 <body>
-    <nav id="mySidenav" class="sidenav">
-        <h1>My Virtual Assistant</h1>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    
+    <div id="mySidenav" class="sidenav">
+            <h1>Virtual Lesson Plan</h1>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="./index.html">Home</a>
             <a href="./notes.html">Notes</a>
             <a href="./randomizer.html">Randomizer</a>
             <a href="./class.html">Classes</a>
             <a href="./attendance.html">Attendance</a>
-    </nav>
-
+        </div>
     <header>
         <nav>
             <span onclick="openNav()">&#9776;</span>
@@ -34,7 +33,7 @@
         </button>
     </header>
 
-    <main id="mainbody">
+    <div id="mainbody">
         <div class="container">
             <div id="disPopUp" class="popUp">
                 <div id="popCont">
@@ -42,26 +41,38 @@
                     <span id="remCont"></span>
                 </div>
             </div>
-            <section id="addNoots">
+            <div id="addNoots">
+
                 <form id="noteDet">
                     <span id="titleLabel">Title </span><input type="text" class="field" name="tit" value="" placeholder="Title"><br>
                     <span id="classLabel">Class: </span><select id="classSelect"><option value="None">Select Class</option>
-			         </select><br>
+			</select><br>
                     <span id="remindLabel">Remind</span>
                     <div class="checkboxTwo">
-                        <input type="checkbox" value="1" id="checkboxTwoInput" name="yes" />
+                        <input type="checkbox" value="1" id="checkboxTwoInput" name="yes" onchange="showDaTi()" />
                         <label for="checkboxTwoInput"></label>
+
                     </div>
-                    <span id="dateLabel">When</span><input id="datetime" type="datetime-local" name="dateTime"><br>
+                    <div id="dtSect">
+                    <span id="dateLabel">When</span><input id="datetime" type="datetime-local" name="dateTime">
+                    </div><br>
                     <span id="descLabel">Description </span>
                     <textarea id="tArea" cols="60" rows="7" placeholder="Description"></textarea><br>
                     <input type="button" name="post" value="Post" onclick="addNotes()">
                 </form>
-            </section>
-            <div class="container" id="disNotes">
+                <div id="alertLine"></div>
             </div>
+             <span id="classSlctLbl">Class: </span><select id="classDisSelect" onchange="displayByClass()"><option value="None">Select Class</option>
+            </select>
+            <div class="container" id="disNotes">
+
+            </div>
+
+
+
         </div>
-    </main>
+    </div>
+
 </body>
 
 </html>

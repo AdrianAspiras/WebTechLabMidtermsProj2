@@ -229,7 +229,7 @@ textarea {
 
 input[name=tit] {
     float: left;
-    padding: 5px;
+    padding: 8px;
 }
 
 #classSelect {
@@ -239,9 +239,13 @@ input[name=tit] {
     margin: 20px 0 25px 5px;
 }
 
+#remindLabel, .checkboxTwo {
+    display: inline-flex;
+    margin: 0 0 0px 0;
+}
+
 #remindLabel {
-    float: left;
-    margin: 55px 0 0 0;
+    margin: 5px 0 0 0;
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.69);
     font-family: "Roboto", sans-serif;
@@ -255,7 +259,7 @@ input[type=checkbox] {
     position: relative;
     width: 70px;
     height: 30px;
-    margin: 50px 0 0 75px;
+    margin: 40px 0 10px 10px;
     border-radius: 50px;
     background: #fff;
 }
@@ -291,9 +295,9 @@ input[type=checkbox] {
 }
 
 input[name=dateTime] {
-    width: 230px;
+    width: 220px;
     height: 40px;
-    margin: 25px 0 25px 25px;
+    margin: 0px 0 10px 25px;
     padding: 5px;
     text-transform: uppercase;
     font-family: "Roboto", sans-serif;
@@ -329,7 +333,7 @@ input[name=post] {
     width: 100%;
     min-height: 50px;
     margin: 0 0 10px 0;
-    padding: 14px 100px 14px 14px;
+    padding: 14px;
     color: #444;
     border-radius: 5px;
     background: #fff;
@@ -353,6 +357,10 @@ input[name=post] {
     content: 'Class: ';
 }
 
+.noFill {
+    fill: none;
+}
+
 input[value=Delete] {
     position: absolute;
     right: 10px;
@@ -368,4 +376,101 @@ input[value=Delete] {
     box-shadow: none;
     font-size: 10px;
     font-weight: 400;
+}
+
+input[value=Delete] svg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px 5px 0;
+    padding: 0;
+}
+
+input[value=Delete] svg .fill {
+    transition: 0.2s ease;
+    fill: #9d9d9d;
+}
+
+input[value=Delete] svg:hover .fill {
+    fill: #c0392b;
+}
+
+
+/* tablet, desktop */
+
+@media (min-width:768px) {
+    .note {
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 200px;
+        max-height: 400px;
+        margin: 0 8px 8px 0;
+        color: #444;
+        border-radius: 5px;
+        background: #fff;
+        box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 22px;
+    }
+    .container {
+        float: none;
+        width: 100%;
+    }
+    .flexcontainer {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        -webkit-flex-direction: row;
+        justify-content: center;
+    }
+    #addNoots {
+        display: none;
+        padding: 0 0 0 30%;
+    }
+    #noteDet input {
+        float: none;
+    }
+    textarea {
+        float: none;
+        overflow: none;
+        width: 450px;
+        height: 150px;
+        padding: 10px;
+        resize: none;
+        color: #141414;
+        border: 0px;
+        border-radius: 25px 25px 25px 25px;
+        outline: none;
+        background: rgba(255, 255, 255, 0.89);
+        box-shadow: none;
+        font-size: 15px;
+        font-weight: 400;
+    }
+    input[name=post] {
+        float: none;
+        margin: 0 0;
+        padding: 10px;
+        cursor: pointer;
+        text-transform: uppercase;
+        color: #F8F2C5 !important;
+        border-radius: 10px 10px 10px 10px;
+        background: #FD9727 !important;
+        font-weight: 500 !important;
+    }
+    #classSelect, #remindLabel, input[name=dateTime] {
+        float: none;
+    }
+    #classSelect {
+        margin: 10px 0 10px 0;
+    }
+    #dateLabel {
+        margin: 0 10px 0 0;
+    }
+    input[name=dateTime] {
+        margin: 0 0px 0 0;
+    }
 }

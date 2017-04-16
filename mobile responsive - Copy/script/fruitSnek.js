@@ -53,9 +53,12 @@
 			var DescriptiveTitle = checklist.Classes[count].DescriptiveTitle;
 			var days = checklist.Classes[count].Days;
 			var room = checklist.Classes[count].Room;
-			key = CourseNumber + "-" + CourseCode + "-" + CourseStart;
+			var sched = generateStringSched(checklist.Classes[count]);
+			var units = checklist.Classes[count].Units;
+			console.log(sched);
+			key = sched + "(" + CourseStartT + " " + room + ")";
 			var arr = checklist.Classes[count].Students;
-			var jsonObj = {"courseNum":CourseNumber,"classCode":CourseCode,"CourseStart":CourseStart,"CourseStartT":CourseStartT,"Student":arr,"Days":days,"Room":room};
+			var jsonObj = {"courseNum":CourseNumber,"classCode":CourseCode,"CourseStart":CourseStart,"CourseStartT":CourseStartT,"Student":arr,"Days":days,"Room":room,"DescriptiveTitle":DescriptiveTitle,"Units":units};
 			console.log(jsonObj);
 			localStorage.setItem(key,JSON.stringify(jsonObj));
 			courses.push({"CourseKey":key});
@@ -98,10 +101,11 @@
 		var awef = document.getElementById("classSelect");
 		var index = awef.options[awef.selectedIndex].value;
 		var myObj = JSON.parse(localStorage.getItem(index));
-		document.getElementById("classTitle").innerHTML = "<h2> Classcode: " + myObj.classCode + "(" + myObj.CourseStartT + ")";
-		var butt = "<input type='button' name='Add Student' value='Add Student!' onclick='addStud()'>";
-			butt = butt.replace(/'/g,"\"");
-		document.getElementById("classTitle").lastChild.innerHTML += butt;
+		var sched = generateStringSched(myObj);
+		document.getElementById("classDets").innerHTML = "<h3> Descriptive Title: " + myObj.DescriptiveTitle;
+		document.getElementById("classDets").innerHTML += "<h3> Schedule: " + sched + " " + myObj.CourseStartT;
+		document.getElementById("classDets").innerHTML += "<h3> Room: " + myObj.Room;
+		document.getElementById("classDets").innerHTML += "<h3> Units: " + myObj.Units; 		
 		displayStud();
 		
 	}
@@ -117,14 +121,9 @@
 		var index = listInfo.options[listInfo.selectedIndex].value;
 		var studList = JSON.parse(localStorage.getItem(index)).Student;
 		var jsonObj = studList.sort(predicateBy("Name"));
-		
+		document.getElementById("seatPlan").innerHTML = "<h5> Students Enrolled :"
 		for(var count = 0; count < jsonObj.length; count++){
-			//Do the labels
-			if(count == 0){
-				document.getElementById("seatPlan").innerHTML = "<input name='student' type='checkbox' id=" + jsonObj[count].ID  + " value=" + jsonObj[count].ID +" />" + " <label for= " + jsonObj[count].ID +">" +  jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "</label> " + "<br />";
-			}else{
-				document.getElementById("seatPlan").innerHTML += "<input name='student' type='checkbox'  id=" + jsonObj[count].ID + " value=" + jsonObj[count].ID +" />" + "<label for= " + jsonObj[count].ID +">" + jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "</label> " + "<br />";
-			}
+			document.getElementById("seatPlan").innerHTML += "<input name='student' type='checkbox'  id=" + jsonObj[count].ID + " value=" + jsonObj[count].ID +" />" + "<label for= " + jsonObj[count].ID +">" + jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "</label> " + "<br />";
 		}
 	}
 
@@ -611,10 +610,7 @@
 	}
 
 
-	function generateStringSched(){
-		var course = document.getElementById("classSelect");
-		var index = course.options[course.selectedIndex].value;
-		var jsonObj = JSON.parse(localStorage.getItem(index));
+	function generateStringSched(jsonObj){
 		var courseDays = jsonObj.Days;
 		console.log(courseDays);
 		stringSched = ""
@@ -648,4 +644,15 @@
 
 		return stringSched;
 
+	}
+
+	function displayClassDetails(){
+		var awef = document.getElementById("classSelect");
+		var index = awef.options[awef.selectedIndex].value;
+		var myObj = JSON.parse(localStorage.getItem(index));
+		var sched = generateStringSched(myObj);
+		document.getElementById("classDets").innerHTML = "<h3> Descriptive Title: " + myObj.DescriptiveTitle;
+		document.getElementById("classDets").innerHTML += "<h3> Schedule: " + sched + " " + myObj.CourseStartT;
+		document.getElementById("classDets").innerHTML += "<h3> Room: " + myObj.Rooms;
+		document.getElementById("classDets").innerHTML += "<h3> Units: " + myObj.Units; 		
 	}

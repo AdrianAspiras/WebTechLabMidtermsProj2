@@ -1,45 +1,57 @@
 <!DOCTYPE html>
 	<html>
 	<head>
+		<title>Virtual Assistant</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta charset="utf-8"/>
-		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
 		<script defer type="text/javascript" src="script/classScript.js"></script>	
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+		<script defer type="text/javascript" src="script/ClassesToday.js"></script>
+		<script defer type="text/javascript" src="script/demoPopup.js"></script>
     	<script src="script/design.js"></script>
 	</head>
 
 	<body id="main">
-		<nav id="mySidenav" class="sidenav">
-	        <h1>My Virtual Assistant</h1>
-	        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<div id="disPopUp" class="popUp">
+                <div id="popCont">
+                    <span id="close">&times;</span>
+                    <span id="remCont"></span>
+                </div>
+            </div>
+		<div id="mySidenav" class="sidenav">
+			<h1>Virtual Lesson Plan</h1>
+		    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		    <a href="./index.html">Home</a>
 		    <a href="./notes.html">Notes</a>
 		    <a href="./randomizer.html">Randomizer</a>
 		    <a href="./class.html">Classes</a>
 		    <a href="./attendance.html">Attendance</a>
-	    </nav>
-		
-		<div id="maintop" class="toppage">
-			<h1><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>  Virtual Lesson Plan</h1>
 		</div>
 
-		<main id="mainmenu" class="menu">
-			<section>
-				<ul>
-					<div id="one"><li><a href="./notes.html">Notes</a></li></div>
-					<div id="two"><li><a href="./recitationrandomizer.html">Group Randomizer</a></li></div>
-					<div id="three"><li><a href="./class.html"></a></li>Classes</div>
-				</ul> 
-			</section>
 
-			<section>
-				<h2>Your Classes</h2>
-				<ul>
-					<div id="four"><li>IT 324 Websystems and Technologies</li></div>
-					<div id="five"><li>IT 324 Websystems and Technologies</li></div>
-				</ul>
-			</section>
-		</main>
+		<div id="maintop" class="toppage">
+
+			<h1><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>  Virtual Lesson Plan</h1>
+
+			
+		</div>
+
+		<div id="dispRemNotes" class="menu">
+		</div>
+
+		<div id="mainmenu" class="menu">	
+				<a href="./notes.html"><div id="one">Notes</div></a>
+				<a href="./recitationrandomizer.html"><div id="two">Group Randomizer</div></a>
+				<a href="./class.html"><div id="three">Classes</div></a>
+				<a href="./attendace.html"><div id="four">Attendance</div></a>
+				
+			
+		</div>
+
+		<h2>Your Classes Today:</h2>
+			<div id="ClassesToday">
+
+			</div>
+			
 	</body>
 </html>

@@ -37,7 +37,7 @@
 		<main id="rggmenu" class="menu">
 			<section id="showClasses" class="menu">
 				<h2>Classes</h2>
-				<select id="classSelect" onchange="getVal()"></select>
+				<select id="classSelect" onchange="reset()"></select>
 			</section>
 
 			<section id="IndividualRandomizer">
@@ -51,14 +51,13 @@
 				<select id="FeatureSelect" onchange="chooseRandomizer()">
 					<option id="Random">Group Randomly</option>
 					<option id="Alpha">Group Alphabetically</option>
-					<option id="Gender">Group By Gender</option>
 					<option id="Lead">Follow The Leader</option>
 				</select>
 				<br/>
 
 				<form id="Selec">			
-						<input type="radio" id="ByGroup" name="gr" checked="checked" onclick="groupingType()"/>By Group
-						<input type="radio" id="ByMember" name="gr" onclick="groupingType()"/>By Member
+						<input type="radio" id="ByGroup" name="gr" checked="checked" onclick="chooseRandomizer()"/>By Group
+						<input type="radio" id="ByMember" name="gr" onclick="chooseRandomizer()"/>By Member
 				</form>
 
 				<form id="actRand">

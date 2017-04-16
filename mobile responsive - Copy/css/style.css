@@ -44,17 +44,19 @@
 }
 #notes{
     background-color: #f8f3c3;
+}
 
+#attendanceBody{
+    background-color: #008000;
+}
+
+#attop{
+    background-color: #004d00;
 
 }
+
 .menu{
     padding-top: 70px;
-    padding-left: 10px;
-    
-    top: 0px;
-    left: 0px;
-    right: 0px;
-
 }
 
 #mainmenu p{
@@ -63,8 +65,8 @@
     color: white;
 }
 
-#mainmenu span{
-    font-weight: bold;
+#mainmenu{
+    text-transform: uppercase;
 }
 
 #rrgmenu p{
@@ -171,6 +173,7 @@ nav span {
     background-color: #ff9800;
     padding: 15px;
     margin: 15px;
+    border-radius: 25px;
 
 }
 
@@ -178,28 +181,23 @@ nav span {
     background-color: #ff4e4e;
     padding: 15px;
     margin: 15px;
-
+    border-radius: 25px;
 }
 
 #three{
-    background-color: #a54040;
+    background-color: #424a80;
     padding: 15px;
     margin: 15px;
-
+    border-radius: 25px;
 
 
 }
-
 #four{
-    background-color: #009688;
+    background-color: #008000;
     padding: 15px;
     margin: 15px;
-}
+    border-radius: 25px;
 
-#five{
-    background-color: #3f51b5;
-    padding: 15px;
-    margin: 15px;
 }
 
 ul {
@@ -471,5 +469,201 @@ input[name=pres] {
     font-weight: 500 !important;
 }
 
+#seatPlan label{
+    line-height:30px;
+    font-size: 20px;
+}
+
+input[type=checkbox]{
+    display: none;   
+}
+
+input[type=checkbox]:checked + label{
+    color: #00FF00;
+
+}
 
 
+#rggmenu h5{
+    text-align: center;
+    font-size: 30px;
+}
+
+.popUp {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: none;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#popCont {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    background-color: #fefefe;
+}
+
+#close {
+    float: right;
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close:hover, #close:focus {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+#attendance{
+    padding-top: 0px;
+}
+
+input[value=Delete] {
+    position: relative;
+    right: 0px;
+    bottom: 10px;
+    padding: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #fff;
+    border: 0px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    background: rgba(181, 43, 43, 0.89);
+    box-shadow: none;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+input[value=Delete] svg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px 5px 0;
+    padding: 0;
+}
+
+input[value=Delete] svg .fill {
+    transition: 0.2s ease;
+    fill: #9d9d9d;
+}
+
+input[value=Delete] svg:hover .fill {
+    fill: #c0392b;
+}
+
+.note {
+
+    width: 100%;
+    min-height: 50px;
+    margin: 0 0 10px 0;
+    padding: 14px;
+    color: #444;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.note h3 {
+    color: #000;
+    font-size: 20px;
+}
+
+.note h4 {
+    padding-bottom: 10px;
+    color: #585858;
+}
+
+.note h4::before {
+    content: 'Class: ';
+}
+
+
+
+#dispRemNotes h2{
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(29, 29, 29, 0.35);
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+}
+
+#dispRemNotes{
+    width: 90%;
+}
+
+
+#Groups p{
+        line-height: 15px;
+        padding-left: 10px;
+}
+
+
+
+@media (min-width:768px) {
+    .note {
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 200px;
+        max-height: 400px;
+        margin: 0 8px 8px 0;
+        color: #444;
+        border-radius: 5px;
+        background: #fff;
+        box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 22px;
+    }
+    .container {
+        float: none;
+        width: 100%;
+    }
+    .flexcontainer {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        -webkit-flex-direction: row;
+        justify-content: center;
+    }
+
+
+    #mainmenu{
+        column-count: 2;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    #seatPlan{
+        column-count: 2;
+    }
+
+    #Groups{
+        column-count: 2;
+
+    }
+
+    #Groups p{
+        line-height: 15px;
+        padding-left: 10px;
+    }
+
+
+}

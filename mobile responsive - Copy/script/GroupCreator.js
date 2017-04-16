@@ -1,4 +1,3 @@
-
 	readFromLocalStorage();
 	chooseRandomizer();
 
@@ -285,9 +284,9 @@
 		console.log(jsonObj);
 		for(var count = 0; count < jsonObj.length; count++){
 			if(count == 0){
-				document.getElementById("studsPerClass").innerHTML = "<input name='stud' type='checkbox' value=" + jsonObj[count].ID +" />" +  jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "<br />";
+				document.getElementById("studsPerClass").innerHTML = "<input name='stud' type='checkbox'  id=" + jsonObj[count].ID + " value=" + jsonObj[count].ID +" />" + "<label for= " + jsonObj[count].ID +">" + jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "</label> " + "<br />";
 			}else{
-				document.getElementById("studsPerClass").innerHTML += "<input name='stud' type='checkbox' value=" + jsonObj[count].ID +" />" +  jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "<br />";
+				document.getElementById("studsPerClass").innerHTML += "<input name='stud' type='checkbox'  id=" + jsonObj[count].ID + " value=" + jsonObj[count].ID +" />" + "<label for= " + jsonObj[count].ID +">" + jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "</label> " + "<br />";
 			}
 		}
 	}
@@ -359,7 +358,7 @@
 				}else if(value == "Lead"){
 					clearGroups();
 					followTheLeader();
-					document.getElementById()
+					document.getElementById("YerMom").setAttribute("onclick","doThisShit()");
 					return;
 				}else{
 					alert("Something happened");
@@ -454,25 +453,6 @@
 	}
 
 	/**
-		displayStud2()
-			-Creates the checkboxes of the students in the group Randomizer part
-	*/
-	function displayStud2(){
-		var listInfo = document.getElementById("classSelect");
-		var index = listInfo.options[listInfo.selectedIndex].value;
-		var studList = JSON.parse(localStorage.getItem(index)).Student;
-		var jsonObj = studList.sort(predicateBy("Name"));
-		console.log(jsonObj);
-		for(var count = 0; count < jsonObj.length; count++){
-			if(count == 0){
-				document.getElementById("studsPerClass").innerHTML = "<input name='stud' type='checkbox' value=" + jsonObj[count].ID +" />" +  jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "<br />";
-			}else{
-				document.getElementById("studsPerClass").innerHTML += "<input name='stud' type='checkbox' value=" + jsonObj[count].ID +" />" +  jsonObj[count].Name +" " + "-" + jsonObj[count].ID + "<br />";
-			}
-		}
-	}
-
-	/**
 		predicateBy()
 			-Method used in order to sort JSON objects based on a specified
 			attribute.
@@ -490,8 +470,143 @@
 		}
 	}
 
-
-	function displayPerClass(){
-		
+	function hideForm(){
+		document.getElementById("actRand").style.display = "none";
 	}
 
+	function showForm(){
+		document.getElementById("actRand").style.display = "block";
+	}
+
+
+	
+
+	function resetRandomize(){
+		document.getElementById("luckyStudent").lastChild.innerHTML = "";
+		document.getElementById("luckyStudent").firstChild.innerHTML = "";
+	}
+
+	function reset(){
+		resetRandomize();
+	}
+
+	function byGroupRandomize(){
+		var listInfo = document.getElementById("classSelect");
+		var index = listInfo.options[listInfo.selectedIndex].value;
+		var jsonObj = JSON.parse(localStorage.getItem(index));
+		students = jsonObj.Student;
+		numOfStudents = jsonObj.Student.length;
+		actVal = document.getElementById("actRand").numOfGroups.value;
+		var numberOfMembers = Math.ceil(students.length / document.getElementById("actRand").numOfGroups.value) ;
+		console.log(numberOfMembers)
+		if(FailSafeForGrouping(numberOfMembers,numOfStudents))
+			return;
+		if(FailSafeForGrouping(actVal,numOfStudents))
+			return;
+
+		groupNum = 1;
+		groups = [];
+		tempGroups = [];
+		numOfStudents = jsonObj.Student.length
+		if(FailSafeForGrouping(numberOfMembers,numOfStudents))
+			return;
+		for(var count = 0; count < numOfStudents; count++){
+			randNumber = Math.ceil(Math.random()*(students.length-1));
+
+			tempGroups.push(students[randNumber]);
+			if(tempGroups.length == numberOfMembers){
+				groups.push(tempGroups);
+				tempGroups = [];
+				groupNum++;
+			}
+			students.splice(randNumber,1);
+
+		}
+		console.log(tempGroups);
+		var test = false;
+		if(tempGroups.length < numberOfMembers - 1){
+			for(var count2 = 0; count2 < groups.length && !test; count2++){
+				if(tempGroups[0] == undefined)
+					break;
+				var prelimMember = tempGroups[0];
+				groups[count2].push(prelimMember);
+			tempGroups.splice(0,1);
+
+
+
+				if(count2 == groups.length - 1){
+					count2 == 0;
+				}
+			}
+		}
+		console.log(groups);
+		displayGroups(groups);
+		document.getElementById("YerMom").setAttribute("onclick","byGroupRandomize()");						
+	}
+
+	function byGroupAlphabetical(){
+		var course = document.getElementById("classSelect");
+		var index = course.options[course.selectedIndex].value;
+		var jsonObj = JSON.parse(localStorage.getItem(index));
+		var students = jsonObj.Student;
+		students.sort(predicateBy("Name"));
+		numOfStudents = jsonObj.Student.length;		
+		console.log(students);
+		var numberOfMembers = Math.ceil(students.length / document.getElementById("actRand").numOfGroups.value);
+		console.log(numberOfMembers);
+		if(FailSafeForGrouping(numberOfMembers,numOfStudents))
+			return;
+		var numberOfMembers = Math.ceil(students.length / document.getElementById("actRand").numOfGroups.value);
+		groupNum = 1;
+		groups = [];
+		tempGroups = [];
+		
+
+		for(var count = 0; count < numOfStudents; count++){
+
+			tempGroups.push(students[0]);
+			if(tempGroups.length == numberOfMembers){
+				groups.push(tempGroups);
+				tempGroups = [];
+				groupNum++;
+			}
+			students.splice(0,1);
+		}
+
+		console.log(groups);
+		console.log(tempGroups);
+		var test = false;
+		if(tempGroups.length < numberOfMembers - 1){
+			for(var count2 = 0; count2 < groups.length && !test; count2++){
+				if(tempGroups[0] == undefined)
+					break;
+				var prelimMember = tempGroups[0];
+				groups[count2].push(prelimMember);
+				tempGroups.splice(0,1);
+
+
+
+				if(count2 == groups.length - 1){
+					count2 == 0;
+				}
+			}
+		}
+		console.log(groups);
+		displayGroups(groups);
+		document.getElementById("YerMom").setAttribute("onclick","byGroupAlphabetical()");	
+	}
+
+
+	/**
+		CONTINUE THIS
+		uncheckHighlightedStudents()
+			-Method used to uncheck all of the currently checked checkboxes.
+	*/
+	function uncheckHighlightedStudents(){
+		var checkboxes = getHighlightedStudents();
+
+		for(var count = 0; count < checkboxes.length; count++){
+			document.getElementById(checkboxes[count]).checked = false;
+			console.log("Deleted");
+		}
+	}
