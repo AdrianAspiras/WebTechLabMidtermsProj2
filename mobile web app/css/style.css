@@ -35,6 +35,7 @@
 
 #main{
     background-color: #64b6ec;
+    color: white;
 
 }
 
@@ -65,8 +66,8 @@
     color: white;
 }
 
-#mainmenu span{
-    font-weight: bold;
+#mainmenu{
+    text-transform: uppercase;
 }
 
 #rrgmenu p{
@@ -185,7 +186,7 @@ nav span {
 }
 
 #three{
-    background-color: #a54040;
+    background-color: #424a80;
     padding: 15px;
     margin: 15px;
     border-radius: 25px;
@@ -568,8 +569,7 @@ input[value=Delete] svg:hover .fill {
 }
 
 .note {
-   position: relative;
-    float: left;
+
     width: 100%;
     min-height: 50px;
     margin: 0 0 10px 0;
@@ -610,7 +610,7 @@ input[value=Delete] svg:hover .fill {
     width: 90%;
 }
 
-@media (min-width:801px) {
+@media (min-width:768px) {
     .note {
         min-width: 300px;
         max-width: 300px;
@@ -636,5 +636,20 @@ input[value=Delete] svg:hover .fill {
         flex-wrap: wrap;
         -webkit-flex-direction: row;
         justify-content: center;
+    }
+
+
+    #mainmenu{
+        column-count: 2;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    #seatPlan{
+        column-count: 2;
+    }
+
+    #Groups{
+        column-count: 2;
     }
 }

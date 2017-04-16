@@ -400,7 +400,7 @@ input[value=Delete] svg:hover .fill {
 
 /* tablet, desktop */
 
-@media (min-width:801px) {
+@media (min-width:768px) {
     .note {
         min-width: 300px;
         max-width: 300px;
