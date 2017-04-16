@@ -1,0 +1,371 @@
+/* Pop up box for remindNow() */
+
+.popUp {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: none;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#popCont {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    background-color: #fefefe;
+}
+
+#close {
+    float: right;
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close:hover, #close:focus {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+body {
+    padding-top: 80px;
+    background: #F8F2C5;
+}
+
+body, input, textarea, nav, label {
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 15px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #FD9727;
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+}
+
+header h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #F8F2C5;
+}
+
+header button {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 0px;
+    border-radius: 25px;
+    outline: none;
+    background: #fff;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+header button svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+}
+
+header button svg .fill {
+    fill: #FD9727;
+}
+
+
+/* Navigation */
+
+nav span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    cursor: pointer;
+    color: #F8F2C5;
+    font-size: 25px;
+}
+
+.sidenav {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    width: 0;
+    height: 100%;
+    transition: 0.5s;
+    color: #fff;
+    background-color: #242424;
+    font-family: "Roboto", sans-serif;
+}
+
+.sidenav h1 {
+    margin: 60px 0 30px 0;
+    font-size: 24px;
+}
+
+.sidenav a {
+    display: block;
+    padding: 8px 8px 8px 32px;
+    transition: 0.3s;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #818181;
+    font-size: 25px;
+    font-size: 20px;
+}
+
+.sidenav a:hover, .offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.sidenav h1 {
+    padding-left: 20px;
+}
+
+.menu p {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+}
+
+.container {
+    float: left;
+    width: 100%;
+    padding: 15px;
+}
+
+
+/* Add Notes div*/
+
+#addNoots {
+    display: none;
+}
+
+#titleLabel, #classLabel, #descLabel {
+    display: none;
+}
+
+#noteDet input {
+    color: #141414;
+    border: 0px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.89);
+    box-shadow: none;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+}
+
+textarea {
+    float: left;
+    overflow: none;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    resize: none;
+    text-indent: 18px;
+    color: #141414;
+    border: 0px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.89);
+    box-shadow: none;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+input[name=tit] {
+    float: left;
+    padding: 5px;
+}
+
+#classSelect {
+    position: absolute;
+    display: block;
+    height: 35px;
+    margin: 20px 0 25px 5px;
+}
+
+#remindLabel {
+    float: left;
+    margin: 55px 0 0 0;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.69);
+    font-family: "Roboto", sans-serif;
+}
+
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+.checkboxTwo {
+    position: relative;
+    width: 70px;
+    height: 30px;
+    margin: 50px 0 0 75px;
+    border-radius: 50px;
+    background: #fff;
+}
+
+.checkboxTwo label {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: all .5s ease;
+    border-radius: 50%;
+    background: rgba(234, 233, 233, 0.9);
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.10);
+}
+
+.checkboxTwo input[type=checkbox]:checked+label {
+    left: 43px;
+    background: #4fbe79;
+}
+
+#dateLabel, input[name=dateTime] {
+    display: inline-flex;
+}
+
+#dateLabel {
+    margin: 0;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.69);
+    font-family: "Roboto", sans-serif;
+}
+
+input[name=dateTime] {
+    width: 230px;
+    height: 40px;
+    margin: 25px 0 25px 25px;
+    padding: 5px;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+}
+
+input[name=post] {
+    float: right;
+    margin: 10px 20px 0 0;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #F8F2C5 !important;
+    border-radius: 10px 10px 10px 10px;
+    background: #FD9727 !important;
+    font-weight: 500 !important;
+}
+
+
+/* disNotes div - generated notes data */
+
+#disNotes h2 {
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(29, 29, 29, 0.35);
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+}
+
+.note {
+    position: relative;
+    float: left;
+    width: 100%;
+    min-height: 50px;
+    margin: 0 0 10px 0;
+    padding: 14px 100px 14px 14px;
+    color: #444;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.note h3 {
+    color: #000;
+    font-size: 20px;
+}
+
+.note h4 {
+    padding-bottom: 10px;
+    color: #585858;
+}
+
+.note h4::before {
+    content: 'Class: ';
+}
+
+input[value=Delete] {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #fff;
+    border: 0px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    background: rgba(181, 43, 43, 0.89);
+    box-shadow: none;
+    font-size: 10px;
+    font-weight: 400;
+}

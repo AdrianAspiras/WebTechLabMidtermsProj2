@@ -1,0 +1,475 @@
+.toppage{
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 70px;
+    position: fixed;
+    display: inline-block;
+
+}
+
+#maintop{
+    background-color: #3498db;
+    text-decoration: none;
+}
+
+#rrgtop{
+    background-color: #e74c3c;
+}
+
+
+#rrg{
+    background-color: #f6a4a4;
+
+}
+
+#classtop{
+    background-color: #131A4B;
+}
+
+
+#class{
+    background-color: #424a80;
+
+}
+
+#main{
+    background-color: #64b6ec;
+
+}
+
+#notestop{
+    background-color: #ff9800;
+
+}
+#notes{
+    background-color: #f8f3c3;
+
+
+}
+.menu{
+    padding-top: 70px;
+    padding-left: 10px;
+    
+    top: 0px;
+    left: 0px;
+    right: 0px;
+
+}
+
+#mainmenu p{
+    font-size: 50px;
+    font-family: "Segoe UI Light";
+    color: white;
+}
+
+#mainmenu span{
+    font-weight: bold;
+}
+
+#rrgmenu p{
+    font-size: 60px;
+    font-family: "Segoe UI Light";
+    color: white;
+}
+
+}
+
+body {
+    padding-top: 80px;
+}
+
+body, input, textarea, nav, label {
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+}
+
+header h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #F8F2C5;
+}
+
+header button {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 0px;
+    border-radius: 25px;
+    outline: none;
+    background: #fff;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+header button svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+}
+
+
+
+/* Navigation */
+
+nav span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    cursor: pointer;
+    color: #F8F2C5;
+    font-size: 25px;
+}
+
+#notesmenu{
+    color: black;
+}
+
+.toppage h1{
+    padding-top: 7px;
+    padding-left:20px;
+    color: white;
+    
+    font-size: 20px;
+}
+.menu a{
+    text-decoration: none;
+    color: white;
+}
+
+.menu{
+    color: white;
+}
+#mainmenu ul{
+    list-style-type: none;
+    font-size: 20px;
+}
+
+#mainmenu h2{
+    font-size: 26px;
+}
+
+#one{
+    background-color: #ff9800;
+    padding: 15px;
+    margin: 15px;
+
+}
+
+#two{
+    background-color: #ff4e4e;
+    padding: 15px;
+    margin: 15px;
+
+}
+
+#three{
+    background-color: #a54040;
+    padding: 15px;
+    margin: 15px;
+
+
+
+}
+
+#four{
+    background-color: #009688;
+    padding: 15px;
+    margin: 15px;
+}
+
+#five{
+    background-color: #3f51b5;
+    padding: 15px;
+    margin: 15px;
+}
+
+ul {
+    list-style-position: inside;
+    padding-left:0;
+}
+
+.sidenav {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    width: 0;
+    height: 100%;
+    transition: 0.5s;
+    color: #fff;
+    background-color: #242424;
+    font-family: "Roboto", sans-serif;
+}
+
+.sidenav h1 {
+    margin: 60px 0 30px 0;
+    font-size: 24px;
+}
+
+.sidenav a {
+    display: block;
+    padding: 8px 8px 8px 32px;
+    transition: 0.3s;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #818181;
+    font-size: 25px;
+    font-size: 20px;
+}
+
+.sidenav a:hover, .offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.sidenav h1 {
+    padding-left: 20px;
+}
+
+.menu p {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+}
+
+.container {
+    float: left;
+    width: 100%;
+    padding: 15px;
+}
+
+#subjEntry{
+    padding-top: 65px;
+    padding-left: 5px;
+    font-size: 20px;
+}
+
+#insertClass{
+    padding-top: 50px;
+}
+
+#mainbody span{
+    display: inline-block;
+    width: 30%;
+    height: 30px;
+}
+
+#insertClass input{
+    padding: 10px;
+    color: #141414;
+    border: 0px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    background: white;
+    box-shadow: none;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 5px 0 5px 5px;
+
+}
+
+#insertClass{
+    text-align: center;
+}
+
+input[name=submit] {
+    float: right;
+    margin: 10px 20px 0 0;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white !important;
+    border-radius: 10px 10px 10px 10px;
+    background: #2A3169 !important;
+    font-weight: 500 !important;
+}
+
+#mainbody input{
+    width: 60%;
+}
+
+#mainbody select{
+    width: 61%;
+    height: 30px;
+}
+
+
+.field{
+    height: 20px;
+    width: 80%;
+}
+
+
+
+
+.submitbut{
+    text-align: center;
+    padding-top: 10px;
+
+}
+
+
+.button:active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+
+
+
+select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+}
+
+#notesmenu{
+    font-color: black;
+}
+
+
+textarea{
+    width:95%;
+}
+
+#notecontent {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: #fcc866;
+
+}
+
+.addbutton{
+    float: right;
+    padding-right: 10px;
+
+}
+
+#addNoots{
+    display: none;
+}
+
+#insertClass{
+    display: none;
+}
+
+#listClasses{
+    padding-top: 50px;
+}
+
+#classDetails{
+    padding-top: 10px;
+}
+
+#rggmenu input{
+    padding: 10px;
+    color: #141414;
+    border: 0px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    background: white;
+    box-shadow: none;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 5px 0 5px 5px;
+
+}
+
+
+input[name=randomize] {
+    margin: 10px 20px 0 0;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white !important;
+    border-radius: 10px 10px 10px 10px;
+    background: #CE6A6A !important;
+    font-weight: 500 !important;
+}
+
+input[name=cler] {
+    float: right;
+    margin: 10px 20px 0 0;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white !important;
+    border-radius: 10px 10px 10px 10px;
+    background: #CE6A6A !important;
+    font-weight: 500 !important;
+}
+
+#showClasses{
+    padding-top: 0px;
+}
+
+/**classes input**/
+
+input[name=tard] {
+    border: 0px;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white !important;
+    border-radius: 25px;
+    background: #2A3169 !important;
+    font-weight: 500 !important;
+}
+
+input[name=pres] {
+    border: 0px;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white !important;
+    border-radius: 25px;
+    background: #2A3169 !important;
+    font-weight: 500 !important;
+}
+
+
+

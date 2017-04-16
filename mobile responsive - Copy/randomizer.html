@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Recitation Randomizer</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    	<script defer src="script/design.js"></script>
+		<script defer type="text/javascript" src="script/GroupCreator.js"></script>
+	</head>
+
+	<body id="rrg">
+		<div id="disPopUp" class="popUp">
+                <div id="popCont">
+                    <span id="close">&times;</span>
+                    <span id="remCont"></span>
+                </div>
+            </div>
+		<div id="mySidenav" class="sidenav">
+	        <h1>My Virtual Assistant</h1>
+	        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		    <a href="./index.html">Home</a>
+		    <a href="./notes.html">Notes</a>
+		    <a href="./randomizer.html">Randomizer</a>
+		    <a href="./class.html">Classes</a>
+		    <a href="./attendance.html">Attendance</a>
+	    </div>
+		<header>
+			<div id="rrgtop" class="toppage">
+				
+				<nav>
+		            <span onclick="openNav()">&#9776;</span>
+		        </nav>
+		        <h1>Randomizer</h1>
+		        
+				
+			</div>
+		</header>
+
+		<div id="rggmenu" class="menu">
+			
+			<div id="showClasses" class="menu">
+
+				<h2>Classes</h2>
+				<select id="classSelect" onchange="getVal()">	
+				
+				</select>
+			</div>
+			<div id="IndividualRandomizer">
+				<h3>Rectitation randomizer</h3>
+				<div id="luckyStudent">
+
+				</div>
+				<input type="button" name="randomize" value="GO!" onclick="randomize()">
+
+				
+			</div>
+
+			<div id="GroupRandomizer">
+				<h3>Group Randomizer</h3>
+
+				<select id="FeatureSelect" onchange="chooseRandomizer()">
+					<option id="Random">Group Randomly</option>
+					<option id="Alpha">Group Alphabetically</option>
+					<option id="Gender">Group By Gender</option>
+					<option id="Lead">Follow The Leader</option>
+				</select>
+				<br />
+				<form id="Selec">			
+						<input type="radio" id="ByGroup" name="gr" checked="checked" onclick="groupingType()"/>By Group
+						<input type="radio" id="ByMember" name="gr" onclick="groupingType()"/>By Member
+				</form>
+
+				<form id="actRand">
+					<br />
+					<span id="Moder">Enter proposed number of members per group here</span> <input type="text" name="numOfGroups" value="">
+				</form>
+				<input id="YerMom" type="button" name="randomize" value="Create Groups!" onclick="">
+				<div id="studsPerClass">
+				</div>
+				<div id="Groups">
+				</div>
+				<input id="Clear" type="button" name="cler" value="Clear!" onclick="clearGroups()"/>
+			</div>
+		</div>
+	</body>
+</html>
